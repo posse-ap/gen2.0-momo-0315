@@ -233,17 +233,15 @@ box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%) ;
 }
 
 /* 不正解ボックスを赤にする */
-.incorrect_answer{
+.incorrect_answer {
     color: #fff;
     background: #ff5128;
-
 }
 
 img {
   display: block;  
   width: auto;
   margin: auto;
-  
 }
 
 /* 答えのボックス */
@@ -253,7 +251,7 @@ img {
     background: #F5F5F5;
     padding: 17px;
     margin: auto;
-
+    display: none;
 }
 
 /* 正解不正解の表示 */

@@ -1,9 +1,4 @@
 'use strict';
-// 正解不正解のボックスを非表示
-document.getElementById("answerBox_" + questionNumber).style.display = "none";
-document.getElementById('incorrectBox1').style.display = "none";
-document.getElementById('incorrectBox2').style.display = "none";
-// document.querySelectorAll(".answerBox").style.display = "none";
 
 // id置き換えた
 // const success = document.getElementById("success");
@@ -57,18 +52,25 @@ document.getElementById('incorrectBox2').style.display = "none";
 
 // 番号つけて正誤判定しようとした 正誤判定まではできるけど、その後id使うと結局一つしかできない
 var check = function (questionNumber, optionNumber, answerNumber) {
+
     let questionOptionNumber = document.getElementById("answerList_" + questionNumber + "_" + optionNumber);
+    let alwaysAnswerNumber = document.getElementById("answerList_" + questionNumber + "_1");
+    
+    if (optionNumber === answerNumber) {
 
-     if (optionNumber === answerNumber) {
-
-        const correctAnswerBox = document.getElementById("answerBox_" + questionNumber);
-        correctAnswerBox.style.display = "block";
         questionOptionNumber.classList.add("correct_answer");
+
+        const correctAnswerBox = document.getElementById("answerBox_" + questionNumber + "_" + optionNumber);
+        correctAnswerBox.style.display = "block";
+
+        let click_invalidation = document.querySelectorAll("answerList");
+        click_invalidation.classList.add("click_invalidation");
     } else {
-        const b = document.getElementById("incorrectBox1");
-        b.style.display = "block";
-        answerList_1_2.classList.add("correct_answer"); 
-        answerList_1_1.classList.add("incorrect_answer");
+
+        questionOptionNumber.classList.add("incorrect_answer");
+        alwaysAnswerNumber.classList.add("correct_answer");
+        const incorrectAnswerBox = document.getElementById("answerBox_" + questionNumber);
+        incorrectAnswerBox.style.display = "block";
     }
 }
 

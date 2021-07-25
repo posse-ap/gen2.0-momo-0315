@@ -49,7 +49,7 @@
         </ul>
         <div class="shiritori">
             <a href="https://kuizy.net/shiritori">
-                📢 新登場！絵を描いてしりとりをするゲームがkuizyに登場！詳しくは<p>こちら</p>！
+                📢 新登場！絵を描いてしりとりをするゲームがkuizyに登場！詳しくは<span>こちら</span>！
             </a>
         </div>
 
@@ -58,14 +58,20 @@
             <div class="clearfix header-spacer"></div>
             <link rel="stylesheet" href="index.css">
             <h1>ガチで東京の人しか解けない！＃東京の難読地名クイズ</h1>
+        
+            <img class="img_K" src="https://pbs.twimg.com/profile_images/1352968042024562688/doQgizBj_400x400.jpg" alt="">
+            <div class="tokyo">
+                <a href="https://kuizy.net/tag/tokyo">東京</a>
+            </div>
+        
             <h2>1. この地名はなんて読む？</h2>
             <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png" />
-            <ul>
+            <ul id="answerLists_1">
                 <li id="answerList_1_1" onclick="check(1,1,1)">たかなわ</li>
                 <li id="answerList_1_2" onclick="check(1,2,1)">こうわ</li>
                 <li id="answerList_1_3" onclick="check(1,3,1)">たかわ</li>
             </ul>
-                
+        
             <div class="answerBox" id="answerBox_1_1">
                 <p class="rightWrong right">正解</p>
                 <p class="description">正解は「たかなわ」です！</p>
@@ -78,7 +84,7 @@
 
             <h2>2. この地名はなんて読む？</h2>
             <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png" />
-            <ul>
+            <ul answerLists_2>
                 <li id="answerList_2_1" onclick="check(2,1,1)">かめいど</li>
                 <li id="answerList_2_2" onclick="check(2,2,1)">かめど</li>
                 <li id="answerList_2_3" onclick="check(2,3,1)">かめと</li>  
@@ -96,7 +102,7 @@
 
             <h2>3. この地名はなんて読む？</h2>
             <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/ad4f8badd896f1a9b527c530ebf8ac7f.png" />
-            <ul>
+            <ul answerLists_3>
                 <li id="answerList_3_1" onclick="check(3,1,1)">こうじまち</li>
                 <li id="answerList_3_2" onclick="check(3,2,1)">おかとまち</li>
                 <li id="answerList_3_3" onclick="check(3,3,1)">かゆまち</li>
@@ -113,7 +119,7 @@
 
             <h2>4. この地名はなんて読む？</h2>
             <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/ee645c9f43be1ab3992d121ee9e780fb.png" />
-            <ul>
+            <ul answerLists_4>
                 <li id="answerList_4_1" onclick="check(4,1,1)">ごせいもん</li>
                 <li id="answerList_4_2" onclick="check(4,2,1)">おなりもん</li>
                 <li id="answerList_4_3" onclick="check(4,3,1)">おかどもん</li>
@@ -130,7 +136,7 @@
 
             <h2>5. この地名はなんて読む？</h2>
             <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/6a235aaa10f0bd3ca57871f76907797b.png" />
-            <ul>
+            <ul answerLists_5>
                 <li id="answerList_5_1" onclick="check(5,1,1)">たたら</li>
                 <li id="answerList_5_2" onclick="check(5,2,1)">たたりき</li>
                 <li id="answerList_5_3" onclick="check(5,3,1)">とどろき</li>
@@ -147,7 +153,7 @@
 
             <h2>6. この地名はなんて読む？</h2>
             <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/0b6789cf496fb75191edf1e3a6e05039.png" />
-            <ul>
+            <ul answerLists_6>
                 <li id="answerList_6_1" onclick="check(6,1,1)">しゃくじい</li>
                 <li id="answerList_6_2" onclick="check(6,2,1)">いじい</li>
                 <li id="answerList_6_3" onclick="check(6,3,1)">せきこうい</li>
@@ -164,7 +170,7 @@
 
             <h2>7. この地名はなんて読む？</h2>
             <img src="https://d1khcm40x1j0f.cloudfront.net/quiz/23e698eec548ff20a4f7969ca8823c53.png" />
-            <ul>
+            <ul answerLists_7>
                 <li id="answerList_7_1" onclick="check(7,1,1)">ざっしき</li>
                 <li id="answerList_7_2" onclick="check(7,2,1)">ざっしょく</li>
                 <li id="answerList_7_3" onclick="check(7,3,1)">ぞうしき</li>
@@ -199,9 +205,9 @@
             <h2>9. この地名はなんて読む？</h2>
             <img src="https://d1khcm40x1j0f.cloudfront.net/words/8cad76c39c43e2b651041c6d812ea26e.png" />
             <ul>
-                <Li id="answerList_9_1" onclick="check(3,1,1)">ししぼね</li>
-                <Li id="answerList_9_2" onclick="check(3,2,1)">しこね</li>
-                <Li id="answerList_9_3" onclick="check(3,3,1)">ろっこつ</li>
+                <Li id="answerList_9_1" onclick="check(9,1,1)">ししぼね</li>
+                <Li id="answerList_9_2" onclick="check(9,2,1)">しこね</li>
+                <Li id="answerList_9_3" onclick="check(9,3,1)">ろっこつ</li>
             </ul>
             <div class="answerBox" id="answerBox_9_1">
                 <p class="rightWrong right">正解</p>

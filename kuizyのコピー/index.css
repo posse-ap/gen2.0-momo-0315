@@ -132,12 +132,41 @@ header {
    width: 100%;
 }
 
+/* 詳しくはこちらの色 */
+span {
+    color: #297CFE;
+}
+
 a {
-    
     font-size: 13px;
     color: black;
     text-decoration: none;
 }
+
+/* Kってマーク */
+.img_K{
+    display: ;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 10px;
+
+}
+
+/* 東京マーク */
+.tokyo {
+    font-size: 12px;
+    height: 20px;
+    width: fit-content;
+    line-height: 20px;
+    text-decoration: none;
+    padding: 0 6px;
+    border-radius: 2px;
+    margin-right: 5px;
+    border: 2px solid #287dff;
+    font-weight: 700;  
+}
+
 /*
 p {
     color: blue;
@@ -188,7 +217,7 @@ body {
 
 /* ガチで */
 h1 {
-    margin-top: 40px;
+    margin-top: auto;
     font-size: 19px;
     line-height: 27px;
 }
@@ -246,12 +275,11 @@ img {
 
 /* 答えのボックス */
 .answerBox {
-    display: block;
+    display: none;
     width: 600px;
     background: #F5F5F5;
     padding: 17px;
     margin: auto;
-    display: none;
 }
 
 /* 正解不正解の表示 */

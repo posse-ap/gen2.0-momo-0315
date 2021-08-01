@@ -1,5 +1,4 @@
-/* ヘッダーの中のcontent-wrapperクラスにつけるスタイル指定 */
-header >.content-wrapper {
+header>.content-wrapper {
     display: flex;
     height: 40px;
     background: #fff;
@@ -17,6 +16,7 @@ header >.content-wrapper {
 }
 
 /* 三本線のオープンメニュー */
+
 .open-menue {
     height: 24px;
     margin-right: 10px;
@@ -26,14 +26,14 @@ header >.content-wrapper {
 }
 
 /* クイジーマーク */
-header >h4 {
+
+header>h4 {
     flex-grow: 1;
     margin-left: 10px;
 }
 
-
-
 /* クイジーマークのsvg */
+
 header h4 svg {
     margin: 0;
     padding: 0;
@@ -43,7 +43,9 @@ header h4 svg {
     top: 2px;
     position: relative;
 }
+
 /*動かない ヘッダー */
+
 header {
     display: block;
     width: 100%;
@@ -54,6 +56,7 @@ header {
 }
 
 /* ヘッダー右の二つのボタン */
+
 .header-right {
     flex-grow: 1;
     height: 40px;
@@ -64,10 +67,10 @@ header {
     align-items: center;
     justify-content: flex-end;
     margin-right: 100px;
-
 }
 
 /* オレンジのボタン */
+
 .subtint-button1 {
     width: 100px;
     display: block;
@@ -79,6 +82,7 @@ header {
 }
 
 /* オレンジボタンの中の文字 */
+
 .header-right-creat {
     height: 25px;
     line-height: 25px;
@@ -88,6 +92,7 @@ header {
 }
 
 /* 黒のボタン */
+
 .subtint-button2 {
     width: auto;
     display: block;
@@ -96,10 +101,10 @@ header {
     text-align: center;
     text-decoration: none;
     border-radius: 3px;
-
 }
 
 /* 黒ボタンの中の文字 */
+
 .header-right-search {
     background: #031831;
     height: 25px;
@@ -113,6 +118,7 @@ header {
 }
 
 /* ヘッダーの下 */
+
 .headerBelow {
     width: 50%;
     display: flex;
@@ -126,13 +132,15 @@ header {
 }
 
 /* しりとりのとこ */
- .shiritori {
-   display: inline-block;
-   text-align: center;
-   width: 100%;
+
+.shiritori {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
 }
 
 /* 詳しくはこちらの色 */
+
 span {
     color: #297CFE;
 }
@@ -144,29 +152,43 @@ a {
 }
 
 /* Kってマーク */
-.img_K{
+
+.img_K {
     display: ;
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    margin-left: 10px;
-
+    margin: 10px;
 }
 
 /* 東京マーク */
+
 .tokyo {
     font-size: 12px;
     height: 20px;
     width: fit-content;
     line-height: 20px;
     text-decoration: none;
-    padding: 0 6px;
+    padding: 3px 6px;
+    margin: 10px;
     border-radius: 2px;
-    margin-right: 5px;
-    margin-left: 10px;
-    margin-top: 10px;
+    color: #287dff;
     border: 2px solid #287dff;
-    font-weight: 700;  
+    font-weight: 700;
+}
+
+/* ビュー数の表示 */
+
+.view_rate {
+    font-size: 13px;
+    line-height: 0px;
+    margin-top: 30px;
+}
+
+/* ビュー数の表示の下を透明にする */
+
+#answer_rate {
+    opacity: 0.5;
 }
 
 /*
@@ -174,7 +196,6 @@ p {
     color: blue;
     text-decoration: none;
 }
-
 a::after {
     display: block;
     margin-top: 5px;
@@ -183,7 +204,6 @@ a::after {
     height: 1px;
     background-color: rgb(197, 194, 194);
     content: ''; 
-
 } */
 
 .header-spacer {
@@ -193,31 +213,32 @@ a::after {
 .clearfix {
     clear: both;
 }
+
 /* ここまではヘッダーのとこ */
 
 /* この地名は〜の下線 */
+
 h2::after {
     display: block;
     margin-top: 10px;
     width: 120px;
     height: 2px;
     background-color: #00ab36;
-    content: '';  
-
+    content: '';
 }
 
 body {
-   font-size: 16px;
-   line-height: 24px;
-   margin: 0;
-   
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
 }
 
-/* .aaa {
-    margin-top: 40px;
-} */
+.whole_wrapper {
+    padding-top: 40px;
+}
 
 /* ガチで */
+
 h1 {
     margin-top: auto;
     font-size: 19px;
@@ -225,12 +246,12 @@ h1 {
 }
 
 /* この地名 */
+
 h2 {
     font-size: 17px;
     line-height: 20px;
     font-weight: 600;
     display: inline-block;
-    
     margin-top: 10px;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
@@ -241,41 +262,43 @@ h2 {
 ul {
     size: 16px;
     list-style-type: none;
-    
 }
 
 /* 選択肢 */
-li {
-display: block;
-width: 600px;
-border: 1px solid #ebebeb;
-padding: 13px;
-margin: 10px auto;
-font-weight: 600;
-cursor: pointer;
-box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%) ;
 
+li {
+    display: block;
+    width: 600px;
+    border: 1px solid #ebebeb;
+    padding: 13px;
+    margin: 10px auto;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%);
 }
 
 /* 正解ボックスを青にする */
+
 .correct_answer {
     color: #fff;
     background: #297CFE;
 }
 
 /* 不正解ボックスを赤にする */
+
 .incorrect_answer {
     color: #fff;
     background: #ff5128;
 }
 
 img {
-  display: block;  
-  width: auto;
-  margin: auto;
+    display: block;
+    width: auto;
+    margin: auto;
 }
 
 /* 答えのボックス */
+
 .answerBox {
     display: none;
     width: 600px;
@@ -285,27 +308,30 @@ img {
 }
 
 /* 正解不正解の表示 */
+
 .rightWrong {
     font-size: 16px;
     line-height: 20px;
     font-weight: 600;
     padding-bottom: 3px;
     margin-bottom: 10px;
-    display: inline-block;  
-
+    display: inline-block;
 }
 
 /* 正解の下線 */
+
 .right {
     border-bottom: 3px solid #297CFE;
 }
 
 /* 不正解の下線 */
+
 .wrong {
-    border-bottom: 3px solid #ff5128; 
+    border-bottom: 3px solid #ff5128;
 }
 
 /* 一回しかクリックできなくする */
+
 .click_invalidation {
-  pointer-events: none;  
+    pointer-events: none;
 }

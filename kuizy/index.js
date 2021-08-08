@@ -23,6 +23,7 @@ let img = ["https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc
     "https://d1khcm40x1j0f.cloudfront.net/words/8cad76c39c43e2b651041c6d812ea26e.png",//画像９
     "https://d1khcm40x1j0f.cloudfront.net/words/34508ddb0789ee73471b9f17977e7c9c.png"];//画像１０
 
+
 // この地名はなんて読む＋画像＋選択肢+解答ボックスのるーぷ
 for (let i = 0; i < 10; i++) {
 
@@ -57,7 +58,6 @@ for (let i = 0; i < 10; i++) {
     //htmlコレクションを配列にする styleをorderにする
     Array.from(listItems).forEach(elm => { elm.style.order = rand() });
 }
-
 
 // 選択肢に引数を与える optionNumberとanswerNumberが同じだったら正解
 var check = function (questionNumber, optionNumber, answerNumber) {

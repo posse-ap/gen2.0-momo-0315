@@ -127,7 +127,7 @@ header {
     content: '';
 }
 
-.header_below_four_box1 . {
+.header_below_four_box1 {
     color: #30619C;
 }
 
@@ -142,7 +142,13 @@ header {
     align-items: normal;
     margin: 0 auto;
     font-size: 1px;
-    height: ;
+}
+
+.headerBelow li {
+    margin: 0;
+    background: rgb(239, 239, 239);
+    text-align: center;
+    line-height: 1.2;
 }
 
 /* しりとりのとこ */
@@ -285,14 +291,15 @@ li {
     width: 600px;
     height: 42px;
     border: 1px solid #ebebeb;
-    padding-top: 8px;
-    margin: 0;
+    padding-top: 10px;
+    padding-left: 13px;
+    margin: 10px 0;
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%);
-    text-align: center;
-    line-height: 13px;
-    background: rgb(239, 239, 239);
+    text-align: left;
+    line-height: center;
+    background: white;
 }
 
 .headerBelow svg {

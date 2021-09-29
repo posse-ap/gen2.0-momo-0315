@@ -3,10 +3,10 @@
 let option = [["たかなわ", "こうわ", "たかわ"],//問１の選択肢
 ["かめいど", "かめと", "かめど"],//問２の選択肢
 ["こうじまち", "おかとまち", "かゆまち"],//問３の選択肢
-["ごせいもん", "おなりもん", "おかどもん"],//問４の選択肢
-["たたら", "たたりき", "とどろき"],//問５の選択肢
+["おなりもん", "ごせいもん", "おかどもん"],//問４の選択肢
+["とどろき", "たたりき", "たたら"],//問５の選択肢
 ["しゃくじい", "いじい", "せきこうい"],//問６の選択肢
-["ざっしき", "ざっし", "ぞうしき"],//問７の選択肢
+["ぞうしき", "ざっし", "ざっしき"],//問７の選択肢
 ["おかちまち", "ごしろまち", "みとちょう"],//問８の選択肢
 ["ししぼね", "しこね", "ろっこつ"],//問９の選択肢
 ["こぐれ", "こしゃく", "こばく"]];//問１０の選択肢
@@ -23,10 +23,8 @@ let img = ["https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc
     "https://d1khcm40x1j0f.cloudfront.net/words/8cad76c39c43e2b651041c6d812ea26e.png",//画像９
     "https://d1khcm40x1j0f.cloudfront.net/words/34508ddb0789ee73471b9f17977e7c9c.png"];//画像１０
 
-
 // この地名はなんて読む＋画像＋選択肢+解答ボックスのるーぷ
 for (let i = 0; i < 10; i++) {
-
     let question =
         `<h2> ${i + 1}. この地名はなんて読む？</h2> `
         + `<img src="${img[i]}"/>`
@@ -52,12 +50,12 @@ for (let i = 0; i < 10; i++) {
 
     //ランダム関数 0,1,2の乱数を取ってくる    
     function rand() {
-        var choice_order = Math.floor(Math.random() * 2);
+        var choice_order = Math.floor(Math.random() * 3);
         return choice_order;
     }
     //htmlコレクションを配列にする styleをorderにする
     Array.from(listItems).forEach(elm => { elm.style.order = rand() });
-}
+};
 
 // 選択肢に引数を与える optionNumberとanswerNumberが同じだったら正解
 var check = function (questionNumber, optionNumber, answerNumber) {

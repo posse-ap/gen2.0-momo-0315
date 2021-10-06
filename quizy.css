@@ -14,7 +14,7 @@ padding-left: 10%;}
     flex-direction: column;
     list-style: none;
     align-items: center;
-    margin: 30px 0;
+    margin: 0px 0 15px 0;
 }
 .option_list {
   font-weight: 600;
@@ -40,4 +40,24 @@ padding-left: 10%;}
 .incorrect_answer {
     color: #fff;
     background: #ff5128;
+}
+
+.answer_box {
+    /* display: none; */
+    width: 80%;
+    height: 80px;
+    background: #F5F5F5;
+    padding: 17px;
+    margin: 0px auto 50px; 
+
+}
+
+.answer_box_text {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border-bottom: 3px solid #297CFE;
 }

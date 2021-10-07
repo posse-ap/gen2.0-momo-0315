@@ -29,7 +29,9 @@ function check(question_id, option_id, correct_id) {
         correctOption.classList.add('correct_answer');
         incorrectOption.classList.add('incorrect_answer');
         answerBox.style.display = "block";
+        answerBoxText.style.borderBottom = "3px solid #ff5128";
         answerBoxText.innerHTML="不正解！";
+        
 
     }
 

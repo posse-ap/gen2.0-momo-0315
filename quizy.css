@@ -43,7 +43,7 @@ padding-left: 10%;}
 }
 
 .answer_box {
-    /* display: none; */
+    display: none;
     width: 80%;
     height: 80px;
     background: #F5F5F5;

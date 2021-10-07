@@ -12,21 +12,25 @@ function check(question_id, option_id, correct_id) {
     var options = document.getElementById(`question_${question_id}`);
     var incorrectOption = document.getElementById(`answer_list_${question_id}_${option_id}`);
     var correctOption = document.getElementById(`answer_list_${question_id}_${correct_id}`);
-    var anserBox = document.getElementById('');
-    var anserBoxText = document.getElementById('');
+    var answerBox = document.getElementById(`answer_box_${question_id}`);
+    var answerBoxText = document.getElementById(`answer_box_text_${question_id}`);
 
 
     options.style.pointerEvents = 'none';
 
     if (option_id === correct_id) {
         console.log('せいかい');
-        correctOption.classList.add('correct_answer')
+        correctOption.classList.add('correct_answer');
+        answerBox.style.display = "block";
 
 
     } else {
         console.log('違うよ');
-        correctOption.classList.add('correct_answer')
-        incorrectOption.classList.add('incorrect_answer')
+        correctOption.classList.add('correct_answer');
+        incorrectOption.classList.add('incorrect_answer');
+        answerBox.style.display = "block";
+        answerBoxText.innerHTML="不正解！";
+
     }
 
 }
@@ -50,14 +54,14 @@ option.forEach(function (double_array, index1) {
     )
     text += 
     `</ul>`
-    +`<div class="answer_box">`
+    +`<div class="answer_box" id="answer_box_${index1}">`
     +`<p class="answer_box_text" id="answer_box_text_${index1}">正解！`
     +`</p>`
-    +`<p>正解はです！`
+    +`<p>正解は${double_array[0]}です！`
     +`</p>`
     +`</div>`
     document.getElementById("html_element").insertAdjacentHTML('beforeend', text);
 });
 }
 
-HTML();
+window.onload = HTML();

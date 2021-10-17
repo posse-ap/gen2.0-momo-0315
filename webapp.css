@@ -1,0 +1,315 @@
+body {
+    background: #F5F5F8;
+    position: relative;
+}
+
+/* ここからヘッダー */
+
+.header {
+    height: 15%;
+    background: #ffffff;
+}
+
+.header_inner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header_left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header_logo {
+    width: 30%;
+    height: auto;
+    padding: 1.5rem;
+}
+
+.header_logo_img {
+    width: 100%;
+}
+
+.header_text {
+    color: #728e97;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.header_button {
+    margin-left: 40rem;
+    border: none;
+    background: linear-gradient(#1378C0, #3CCCFC);
+    box-shadow: 3px 5px 3px rgb(182, 229, 229);
+    border-radius: 30px;
+    padding: 8px 50px 5px;
+}
+
+.header_button_text {
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #f9f4f2;
+}
+
+.body_wrapper {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0 5rem;
+}
+
+.left_page {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.right_page {
+    width: 50%;
+}
+
+/* 学習時間とかの三つの四角 */
+
+.learning_time_ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.learning_time_li {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 1rem 3rem;
+    background: #ffffff;
+    border-radius: 1rem;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.learning_time_li>span {
+    color: rgb(6, 94, 202);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.learning_time_li>time {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.learning_time_li>hour {
+    color: rgb(195, 195, 194);
+}
+
+/* ここから棒グラフ */
+
+.bar_graph_img_wrapper>img {
+    width: 91%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.bar_graph_img_wrapper {
+    border-radius: 1rem;
+    padding-right: 20px;
+}
+
+/* ここから円グラフ */
+
+.pie_chart_ul {
+    display: flex;
+    list-style: none;
+}
+
+.pie_chart_li {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 1rem;
+    line-height: 2rem;
+    padding: 1rem;
+    margin: 20px 20px 20px 0;
+}
+
+.pie_chart_li>span {
+    font: 18px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.pie_chart_img>img {
+    width: 100%;
+    height: auto;
+}
+
+.pie_chart_component_ul {
+    list-style: none;
+    margin-top: 3rem;
+}
+
+.pie_chart_component_li {
+    font-size: 14px;
+    line-height: 2rem;
+}
+
+.fas {
+    margin-right: 0.5rem;
+}
+
+.fas1 {
+    color: #1855EF;
+}
+
+.fas2 {
+    color: #1170BC;
+}
+
+.fas3 {
+    color: #20BDDE;
+}
+
+.fas4 {
+    color: #3CCEFE;
+}
+
+.fas5 {
+    color: #B39EF3;
+}
+
+.fas6 {
+    color: #6C47EB;
+}
+
+.fas7 {
+    color: #6C47EB;
+}
+
+.fas8 {
+    color: #3004C0;
+}
+
+/* ここからもーだる */
+
+.overlay {
+    background: rgb(231, 232, 232);
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    padding: 2rem 56px;
+    border-radius: 2rem;
+}
+
+.overlay_wrapper {
+    display: flex;
+
+}
+
+.left_wrapper {
+    margin-right: 40px;
+}
+
+.right_wrapper {}
+
+.fa-check-circle {
+    color: gray;
+}
+
+.learning_date {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.learning_date>input {
+    border: none;
+    border-radius: 1rem;
+    width: 25rem;
+    height: 4rem;
+}
+
+.learning_content {
+    margin-bottom: 1rem;
+}
+
+.learning_hour {
+    margin-bottom: 1rem;
+}
+
+.overlay_button {
+    border: none;
+    background: linear-gradient(#1378C0, #3CCCFC);
+    box-shadow: 3px 5px 3px rgb(182, 229, 229);
+    border-radius: 30px;
+    padding: 0.7rem 10rem 0.7rem;
+    margin: 2rem auto 0;
+}
+
+.overlay_button_text {
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #f9f4f2;
+}
+
+.learning_hour {
+    display: flex;
+    flex-direction: column;
+}
+
+.learning_hour>input {
+    border: none;
+    border-radius: 1rem;
+    width: 25rem;
+    height: 5rem;
+}
+
+.twitter_comment {
+    display: flex;
+    flex-direction: column;
+}
+.twitter_comment>input {
+    border: none;
+    border-radius: 1rem;
+    width: 25rem;
+    height: 10rem;
+}
+
+.overlay_label {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: ;
+    margin-bottom: 1rem;
+}
+
+.overlay_label_ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+.overlay_label_li {
+    background: rgb(216, 214, 214);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin: 0.3rem;
+
+}
+.overlay_label_li_horizontal {
+    display: flex;
+}
+.share_twitter {
+    margin-top: 1rem;
+}

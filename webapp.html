@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="webapp.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header_inner">
+            <div class="header_left">
+                <a href="https://posse.anti-pattern.co.jp/" class="header_logo">
+                    <img src="https://posse.anti-pattern.co.jp/img/posseLogo.png" alt="" class="header_logo_img">
+                </a>
+                <div class="header_text">4th week
+                </div>
+            </div>
+            <a href="">
+                <button class="header_button">
+                    <span class="header_button_text">投稿・記録
+                    </span>
+                </button>
+            </a>
+        </div>
+    </header>
+    <div class="body_wrapper">
+        <div class="left_page">
+            <ul class="learning_time_ul">
+                <li class="learning_time_li">
+                    <span>Today</span>
+                    <time>3</time>
+                    <hour>hour</hour>
+                </li>
+                <li class="learning_time_li">
+                    <span>Month</span>
+                    <time>120</time>
+                    <hour>hour</hour>
+                </li>
+                <li class="learning_time_li">
+                    <span>Total</span>
+                    <time>1348</time>
+                    <hour>hour</hour>
+                </li>
+            </ul>
+            <div class="bar_graph">
+                <div class="bar_graph_img_wrapper"><img
+                        src="https://pbs.twimg.com/media/FB0kY1nVEAY33uU?format=jpg&name=small" alt=""
+                        class="bar_graph_img"></div>
+            </div>
+        </div>
+        <div class="right_page">
+            <ul class="pie_chart_ul">
+                <li class="pie_chart_li">
+                    <span>学習言語</span>
+                    <div class="pie_chart_img"><img
+                            src="https://pbs.twimg.com/media/FB0kY1mVkAQ3SMc?format=jpg&name=small" alt=""></div>
+                    <ul class="pie_chart_component_ul">
+                        <li class="pie_chart_component_li">
+                            <i class="fas fa-circle fas1"></i><span>JavaScript　</span>
+                            <i class="fas fa-circle fas2"></i><span>CSS　</span>
+                            <i class="fas fa-circle fas3"></i><span>PHP　</span>
+                        </li>
+                        <li class="pie_chart_component_li">
+                            <i class="fas fa-circle fas4"></i><span>HTML　</span>
+                            <i class="fas fa-circle fas5"></i><span>Laravel　</span>
+                            <i class="fas fa-circle fas6"></i><span>SQL　</span>
+                        </li>
+                        <li class="pie_chart_component_li">
+                            <i class="fas fa-circle fas7"></i><span>SHELL</span>
+                        </li>
+                        <li class="pie_chart_component_li">
+                            <i class="fas fa-circle fas8"></i><span>情報システム基礎知識（その他）</span>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="pie_chart_li">
+                    <span>学習コンテンツ</span>
+                    <div class="pie_chart_img"><img
+                            src="https://pbs.twimg.com/media/FB0kY1mUYAEP4id?format=jpg&name=small" alt=""></div>
+                    <ul class="pie_chart_component_ul">
+                        <li class="pie_chart_component_li"><i class="fas fa-circle fas1"></i><span>ドットインストール</span></li>
+                        <li class="pie_chart_component_li"><i class="fas fa-circle fas2"></i><span>N予備校</span></li>
+                        <li class="pie_chart_component_li"><i class="fas fa-circle fas3"></i><span>POSSE課題</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="overlay">
+        <div class="overlay_wrapper">
+            <div class="left_wrapper">
+                <div class="learning_date">
+                    <label class="overlay_label">学習日</label>
+                    <input type="text">
+                </div>
+                <div class="learning_content">
+                    <label class="overlay_label">学習コンテンツ（複数選択可）</label>
+                    <ul class="overlay_label_ul">
+                        <div class="overlay_label_li_horizontal">
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i><span>N予備校</span></li>
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i><span>ドットインストール</span></li>
+                        </div>
+                        <li class="overlay_label_li"><i class="fas fa-check-circle"></i>POSSE課題</li>
+                    </ul>
+                </div>
+                <div class="learning_language">
+                    <label class="overlay_label">学習言語（複数選択可）</label>
+                    <div class="overlay_label_ul">
+                        <div class="overlay_label_li_horizontal">
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>HTML</li>
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>CSS</li>
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>JavaScript</li>
+                        </div>
+                        <div class="overlay_label_li_horizontal">
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>PHP</li>
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>Laravel</li>
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>SQL</li>
+                        </div>
+                        <div class="overlay_label_li_horizontal">
+                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>SHELL</li>
+                        </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right/wrapper">
+                <div class="learning_hour">
+                    <label class="overlay_label">学習時間</label>
+                    <input type="text" class="learning_hour_imput">
+                </div>
+                <div class="twitter_comment">
+                    <label class="overlay_label">Twitter用コメント</label>
+                    <input type="text" class="twitter_input">
+
+                    <div class="share_twitter">
+                        <i class="fas fa-check-circle"></i><span>Twitterにシェアする</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="">
+            <button class="overlay_button">
+                <span class="overlay_button_text">投稿・記録
+                </span>
+            </button>
+        </a>
+    </div>
+    <script src="webapp.js"></script>
+</body>
+
+</html>

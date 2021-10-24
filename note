@@ -1,0 +1,76 @@
+generateLabels: function (data) {
+
+                    // 凡例の表示
+                    const chartData = data.tooltip._data;
+                    const chartDataset = chartData.datasets[0];
+                    const chartLabels = chartData.labels;
+
+                    const legendArray = [];
+
+                    for (let i = 0; i < chartLabels.length; i++) {
+                        const eachLabel = chartLabels[i];
+                        const eachData = chartDataset.data[i];
+                        const backgroundColor = chartDataset.backgroundColor[i];
+
+                        const eachElement = {
+                            // 表示されるラベル
+                            text: `${eachLabel}`,
+                            // 凡例ボックスの塗りつぶしスタイル
+                            fillStyle: backgroundColor,
+                            //  trueの場合、この項目は非表示のデータセットを表します。ラベルは取り消し線を伴ってレンダリングされます
+                            hidden: false,
+                            // ボックス枠用。次をご覧ください。https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap
+                            lineCap: 'round',
+                            // ボックス枠用。次をご覧ください。https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
+                            lineDash: [0],
+                            // ボックス枠用。次をご覧ください。https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
+                            lineDashOffset: 0,
+                            // ボックス枠用。次をご覧ください。https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
+                            lineJoin: 'round',
+                            // 枠線の幅
+                            lineWidth: 0,
+                            // 凡例ボックスのストロークスタイル
+                            strokeStyle: "",
+                            // 凡例ボックスのポイントスタイル（usePointStyleがtrueの場合にのみ使用されます）
+                            pointStyle: "",
+                            
+                        };
+
+                        legendArray.push(eachElement);
+
+                    } // end for
+
+                    return legendArray;
+                }
+
+                .fas1 {
+    color: #1855EF;
+}
+
+.fas2 {
+    color: #1170BC;
+}
+
+.fas3 {
+    color: #20BDDE;
+}
+
+.fas4 {
+    color: #3CCEFE;
+}
+
+.fas5 {
+    color: #B39EF3;
+}
+
+.fas6 {
+    color: #6C47EB;
+}
+
+.fas7 {
+    color: #6C47EB;
+}
+
+.fas8 {
+    color: #3004C0;
+}

@@ -8,10 +8,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="reset.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="webapp.css">
+    
 </head>
 
-<body>
+<body id="body">
     <header class="header">
         <div class="header_inner">
             <div class="header_left">
@@ -21,16 +24,17 @@
                 <div class="header_text">4th week
                 </div>
             </div>
-            <a href="">
-                <button class="header_button">
-                    <span class="header_button_text">投稿・記録
-                    </span>
-                </button>
-            </a>
+
+           
+
         </div>
     </header>
+    <button class="header_button" id="header_button">
+        <span class="header_button_text">投稿・記録
+        </span>
+    </button>
     <div class="body_wrapper">
-        <div class="left_page">
+        <div class="bar_graph_page">
             <ul class="learning_time_ul">
                 <li class="learning_time_li">
                     <span>Today</span>
@@ -49,110 +53,156 @@
                 </li>
             </ul>
             <div class="bar_graph">
-                <div class="bar_graph_img_wrapper"><img
-                        src="https://pbs.twimg.com/media/FB0kY1nVEAY33uU?format=jpg&name=small" alt=""
-                        class="bar_graph_img"></div>
+                <div class="bar_graph_img_wrapper">
+                    <canvas class="myBarChart" id="myBarChart">
+                    </canvas>
+                </div>
             </div>
         </div>
-        <div class="right_page">
+        <div class="pie_chart_page">
             <ul class="pie_chart_ul">
                 <li class="pie_chart_li">
                     <span>学習言語</span>
-                    <div class="pie_chart_img"><img
-                            src="https://pbs.twimg.com/media/FB0kY1mVkAQ3SMc?format=jpg&name=small" alt=""></div>
-                    <ul class="pie_chart_component_ul">
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle fas1"></i><span>JavaScript　</span>
-                            <i class="fas fa-circle fas2"></i><span>CSS　</span>
-                            <i class="fas fa-circle fas3"></i><span>PHP　</span>
-                        </li>
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle fas4"></i><span>HTML　</span>
-                            <i class="fas fa-circle fas5"></i><span>Laravel　</span>
-                            <i class="fas fa-circle fas6"></i><span>SQL　</span>
-                        </li>
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle fas7"></i><span>SHELL</span>
-                        </li>
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle fas8"></i><span>情報システム基礎知識（その他）</span>
-                        </li>
-
-                    </ul>
+                    <div class="pie_chart_img">
+                        <canvas class="myDoughnutChart1" id="myDoughnutChart1" height="300">
+                        </canvas>
+                    </div>
+                    
                 </li>
                 <li class="pie_chart_li">
                     <span>学習コンテンツ</span>
-                    <div class="pie_chart_img"><img
-                            src="https://pbs.twimg.com/media/FB0kY1mUYAEP4id?format=jpg&name=small" alt=""></div>
-                    <ul class="pie_chart_component_ul">
+                    <div class="pie_chart_img">
+                        <canvas class="myDoughnutChart2" id="myDoughnutChart2" height="250">
+                        </canvas>
+                    </div>
+                    <!-- <ul class="pie_chart_component_ul">
                         <li class="pie_chart_component_li"><i class="fas fa-circle fas1"></i><span>ドットインストール</span></li>
                         <li class="pie_chart_component_li"><i class="fas fa-circle fas2"></i><span>N予備校</span></li>
                         <li class="pie_chart_component_li"><i class="fas fa-circle fas3"></i><span>POSSE課題</span></li>
-                    </ul>
+                    </ul> -->
                 </li>
             </ul>
         </div>
     </div>
-    <div class="overlay">
+
+    <!-- 
+
+    もーだる
+
+ -->
+    <div class="black_filter" id="black_filter"></div>
+    <div class="overlay" id="overlay">
         <div class="overlay_wrapper">
+    
             <div class="left_wrapper">
                 <div class="learning_date">
-                    <label class="overlay_label">学習日</label>
-                    <input type="text">
+                    <span class="overlay_each_tittle">学習日</span>
+                    <input type="date" name="datepicker" id="js-datepicker">
                 </div>
                 <div class="learning_content">
-                    <label class="overlay_label">学習コンテンツ（複数選択可）</label>
-                    <ul class="overlay_label_ul">
-                        <div class="overlay_label_li_horizontal">
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i><span>N予備校</span></li>
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i><span>ドットインストール</span></li>
+                    <span class="overlay_each_tittle">学習コンテンツ（複数選択可）</span>
+                    <div class="overlay_leaning_contents_wrapper">
+                        <div class="overlay_input_horizontal">
+                            <input type="checkbox" class="overlay_input" id="Nyobi">
+                                <label class="overlay_input_element" for="Nyobi"><i
+                                        class="fas fa-check-circle"></i>N予備</label>
+                                        <input type="checkbox" class="overlay_input" id="dotinstall">
+                                <label class="overlay_input_element" for="dotinstall"><i
+                                        class="fas fa-check-circle"></i>ドットインストール</label>
                         </div>
-                        <li class="overlay_label_li"><i class="fas fa-check-circle"></i>POSSE課題</li>
-                    </ul>
-                </div>
-                <div class="learning_language">
-                    <label class="overlay_label">学習言語（複数選択可）</label>
-                    <div class="overlay_label_ul">
-                        <div class="overlay_label_li_horizontal">
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>HTML</li>
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>CSS</li>
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>JavaScript</li>
+                        <input type="checkbox" class="overlay_input" id="posse">
+                                        <label class="overlay_input_element" for="posse"><i
+                                                class="fas fa-check-circle"></i>POSSE課題</label>
+                    </div>
+                    <div class="learning_language">
+                        <span class="overlay_each_tittle">学習言語（複数選択可）</span>
+                        <div class="overlay_leaning_contents_wrapper">
+                            <div class="overlay_input_horizontal">
+                                <input type="checkbox" class="overlay_input" id="html">
+                                <label class="overlay_input_element" for="html"><i
+                                        class="fas fa-check-circle"></i>HTML</label>
+                                <input type="checkbox" class="overlay_input" id="css">
+                                <label class="overlay_input_element" for="css"><i
+                                        class="fas fa-check-circle"></i>CSS</label>
+                                <input type="checkbox" class="overlay_input" id="js">
+                                <label class="overlay_input_element" for="js"><i
+                                        class="fas fa-check-circle"></i>JavaScript</label>
+    
+                            </div>
+                            <div class="overlay_input_horizontal">
+                                <input type="checkbox" class="overlay_input" id="php">
+                                <label class="overlay_input_element" for="php"><i
+                                        class="fas fa-check-circle"></i>PHP</label>
+                                <input type="checkbox" class="overlay_input" id="laravel">
+                                <label class="overlay_input_element" for="laravel"><i class="fas fa-check-circle"></i>Laravel</label>
+    
+                                <input type="checkbox" class="overlay_input" id="sql">
+                                <label class="overlay_input_element" for="sql"><i
+                                        class="fas fa-check-circle"></i>SQL</label>
+                                <input type="checkbox" class="overlay_input" id="shell">
+                                <label class="overlay_input_element" for="shell"><i
+                                        class="fas fa-check-circle"></i>SHELL</label>
+    
+                            </div>
+                            <div class="overlay_input_horizontal">
+                                <input type="checkbox" class="overlay_input" id="informationsystem">
+                                <label div class="overlay_input_element" for="informationsystem"><i
+                                        class="fas fa-check-circle"></i>情報システム基礎知識（その他）</label>
+                            </div>
                         </div>
-                        <div class="overlay_label_li_horizontal">
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>PHP</li>
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>Laravel</li>
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>SQL</li>
-                        </div>
-                        <div class="overlay_label_li_horizontal">
-                            <li class="overlay_label_li"><i class="fas fa-check-circle"></i>SHELL</li>
-                        </div>
-                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="right/wrapper">
+            <div class="right_wrapper">
+                <i class="fas fa-times" id="overlay_close_button"></i>
                 <div class="learning_hour">
-                    <label class="overlay_label">学習時間</label>
+                    <span class="overlay_each_tittle ">学習時間</span>
                     <input type="text" class="learning_hour_imput">
                 </div>
                 <div class="twitter_comment">
-                    <label class="overlay_label">Twitter用コメント</label>
+                    <span class="overlay_each_tittle">Twitter用コメント</span>
                     <input type="text" class="twitter_input">
-
+    
                     <div class="share_twitter">
-                        <i class="fas fa-check-circle"></i><span>Twitterにシェアする</span>
+                        <i class="fas fa-check-circle fa-2x" id="twitter_button"></i><span>Twitterにシェアする</span>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="">
-            <button class="overlay_button">
-                <span class="overlay_button_text">投稿・記録
-                </span>
-            </button>
-        </a>
+    
+        <button class="overlay_post_record_button" id="overlay_post_record_button">
+            <span class="overlay_post_record_button_text">投稿・記録
+            </span>
+        </button>
     </div>
+    <!-- 
+    
+    loading overlay
+    
+     -->
+    <div class="loading_wrapper" id="loading">
+        <i class="fas fa-times" id="close_button"></i>
+        <div class="loader"></div>
+    </div>
+    <!-- 
+            
+            awesome 
+        
+        -->
+    <div class="post_record_completed_whole_wrapper" id="post_record_completed">
+        <div class="post_record_completed">
+            <i class="fas fa-times" id="post_record_completed_close_button"></i>
+            <div class="post_record_completed_wrapper">
+                <span class="awesome">AWESOME!</span>
+                <i class="fas fa-check-circle awesome_check fa-3x"></i>
+                <span>記録・投稿<br>完了しました</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="webapp.js"></script>
+
 </body>
 
 </html>

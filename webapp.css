@@ -17,6 +17,7 @@ body {
 .header {
     height: 15%;
     background: #ffffff;
+    box-shadow: 2px 2px 10px rgb(214, 214, 214);  
 }
 
 .header_inner {
@@ -34,7 +35,7 @@ body {
 .header_logo {
     width: 30%;
     height: auto;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem 1.5rem 3rem;
 }
 
 .header_logo_img {
@@ -101,6 +102,7 @@ body {
     border-radius: 1rem;
     text-align: center;
     line-height: 2.5rem;
+     box-shadow: 2px 2px 10px rgb(214, 214, 214); 
 }
 
 .learning_time_li>span {
@@ -120,29 +122,36 @@ body {
 
 /* ここから棒グラフ */
 
-.bar_graph_img_wrapper>img {
-    width: 91%;
+.bar_graph_wrapper {
+    width: 38rem;
     height: auto;
-    border-radius: 5px;
+  
 }
 
-.bar_graph_img_wrapper {
+.bar_graph_style {
+    height: 25rem;
     border-radius: 1rem;
-    padding-right: 20px;
+    padding: 20px;
     background: #ffffff;
+    box-shadow: 2px 2px 10px rgb(214, 214, 214); 
 }
 
 /* ここから円グラフ */
 
-.myDoughnutChart_1 {
-    position: relative;
-    width: 30%;
-    height: auto;
+.donutChart1 {
+    width: 300px;
+    height: 300px;
+    
+}
+.donutChart2 {
+    width: 300px;
+    height: 300px;
 }
 
 .pie_chart_ul {
     display: flex;
     list-style: none;
+    padding: 0;
 }
 
 .pie_chart_li {
@@ -153,6 +162,7 @@ body {
     line-height: 2rem;
     padding: 1rem;
     margin: 20px 20px 20px 0;
+     box-shadow: 2px 2px 10px rgb(214, 214, 214); 
 }
 
 .pie_chart_li>span {
@@ -179,6 +189,36 @@ body {
 .fas {
     margin-right: 0.5rem;
 }
+.fas1 {
+    color: #1855EF;
+}
+.fas2 {
+    color: #1170BC;
+}
+
+.fas3 {
+    color: #20BDDE;
+}
+
+.fas4 {
+    color: #3CCEFE;
+}
+
+.fas5 {
+    color: #B39EF3;
+}
+
+.fas6 {
+    color: #6C47EB;
+}
+
+.fas7 {
+    color: #6C47EB;
+}
+
+.fas8 {
+    color: #3004C0;
+}
 
 /* 
 
@@ -192,7 +232,7 @@ body {
     position: absolute;
     top: 5%;
     left: 20%;
-    padding: 1rem 56px;
+    padding: 1rem 56px 2rem ;
     border-radius: 2rem;
     z-index: 30;
 }
@@ -359,19 +399,19 @@ input[type="checkbox"]:checked+label {
     display: none;
     z-index: 30;
     position: absolute;
-    top: 15%;
+    top: 5%;
     left: 20%;
     background: #ffffff;
     border-radius: 2rem;
-    padding: 10rem 12rem;
+    padding: 12rem 25rem;
 }
 
 .loader {
     font-size: 10px;
     margin: 50px auto;
     text-indent: -9999em;
-    width: 11em;
-    height: 11em;
+    width: 15em;
+    height: 15em;
     border-radius: 50%;
     background: #3CCCFC;
     background: -moz-linear-gradient(left, #3CCCFC 10%, rgba(255, 255, 255, 0) 42%);
@@ -435,6 +475,11 @@ input[type="checkbox"]:checked+label {
         transform: rotate(360deg);
     }
 }
+.loading_close_button {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
 
 /* 
   ここから完了画面
@@ -442,7 +487,7 @@ input[type="checkbox"]:checked+label {
 
 .post_record_completed_whole_wrapper {
     display: none;
-    padding: 10rem 12rem;
+    
 }
 
 .post_record_completed {
@@ -451,11 +496,11 @@ input[type="checkbox"]:checked+label {
     justify-content: flex-end;
     z-index: 50;
     position: absolute;
-    top: 15%;
+    top: 5%;
     left: 20%;
     background: #ffffff;
     border-radius: 2rem;
-    padding: 5rem 10rem;
+    padding: 14rem 26rem;
 }
 
 .post_record_completed_wrapper {
@@ -463,6 +508,11 @@ input[type="checkbox"]:checked+label {
     flex-direction: column;
     text-align: center;
     line-height: 2rem;
+}
+.post_record_completed_close_button {
+    position: absolute;
+    top: 5%;
+    right: 5%;
 }
 
 .awesome {
@@ -491,8 +541,11 @@ input[type="checkbox"]:checked+label {
         padding: 1.5rem;
     }
     .header_button {
-       left: 25rem;
+       left: 50%;
        top: 100%;
+       width: 20rem;
+       height: 5%;
+       
     }
     .body_wrapper {
         width: auto;
@@ -508,6 +561,15 @@ input[type="checkbox"]:checked+label {
         list-style: none;
         margin-left: 2.5rem;
     }
+    .learning_time_ul::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: rgb(208, 207, 207);
+        position: absolute;
+        top: 20%;
+    }
     .learning_time_li {
         display: flex;
         flex-direction: column;
@@ -519,11 +581,11 @@ input[type="checkbox"]:checked+label {
         line-height: 2.5rem;
     }
     .body_wrapper {
-        width: 100%;
+        width: 90%;
         height: auto;
         display: flex;
         justify-content: center;
-        margin: 0 1rem;
+        margin: 0 1rem 0 0;
     }
     .bar_graph_img_wrapper {
         width: 40rem;
@@ -546,8 +608,8 @@ input[type="checkbox"]:checked+label {
         color: #9DBCD3;
     }
     .pie_chart_img {
-        width: 90%;
-        height: 25rem;
+        width: 92%;
+        height: 20rem;
     }
     
     .pie_chart_component_ul {

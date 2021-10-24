@@ -74,3 +74,112 @@ generateLabels: function (data) {
 .fas8 {
     color: #3004C0;
 }
+
+// var ctx = document.getElementById("myDoughnutChart1");
+// var myDoughnutChart1 = new Chart(ctx, {
+//     type: 'doughnut',
+//     data: {
+//         labels: [`JavaScript`, "CSS", "PHP", "HTML", "Laravel", "SQL", "SHELL", "情報システム基礎知識（その他）"], //データ項目のラベル
+//         datasets: [{
+//             backgroundColor: [
+//                 "#1855EF",
+//                 "#1170BC",
+//                 "#20BDDE",
+//                 "#3CCEFE",
+//                 "#B39EF3",
+//                 "#6C47EB",
+//                 "#6C47EB",
+//                 "#3004C0",
+//             ],
+//             data: [42, 18, 10, 5, 5, 5, 10, 5], //グラフのデータ
+//         }]
+//     },
+
+//     options: {
+//         title: {
+//             display: false,
+//             //グラフタイトル
+//         },
+//         legend: {
+//             display: true,
+//             position: 'bottom', 
+            
+//             labels: {  
+//             }
+//         }
+//     }
+
+//   });
+//   var ctx = document.getElementById("myDoughnutChart2");
+// var myDoughnutChart2 = new Chart(ctx, {
+//     type: 'doughnut',
+//     data: {
+//         labels: ["ドットインストール","N予備","POSSE課題"], //データ項目のラベル
+//         datasets: [{
+//             backgroundColor: [
+//                 "#1855EF",
+//                 "#1170BC",
+//                 "#20BDDE"
+//             ],
+//             data: [42,33,25], //グラフのデータ
+//         }]
+//     },
+//     options: {
+//         title: {
+//             display: false,
+//             //グラフタイトル
+//         },
+//         legend: {
+//             display: true,
+//             position: 'bottom', 
+//             labels: {  
+//             }
+//         }
+//     }
+//   });
+
+
+//ここから棒グラフ
+
+//   var ctx = document.getElementById("myBarChart");
+//   var myBarChart = new Chart(ctx, {
+//     type: 'bar',
+    
+//     data: {
+//      //凡例のラベル
+//       labels: ['2', '4', '6', '8', '10','12', '14', '16', '18', '20','22', '24', '26', '28', '30',],
+//       datasets: [
+//         {
+//           data: [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,], //グラフのデータ
+//           backgroundColor: "#1378C0",
+//         }
+//       ]
+//     },
+//     options: {
+//         // title:false,
+//       scales: {
+//         xAxes: [{
+//             display: true,
+//             stacked: false,
+//             gridLines: {
+//               display: false
+//             }
+//           }],
+//         yAxes: [{
+//           ticks: {
+//               callback: function(tick) {
+//                   return tick.toString()+"h";
+//               },
+//             display: true,
+//             stacked: false,
+//             gridLines: {
+//               display: false
+//             },
+//             suggestedMax: 8, //最大値
+//             suggestedMin: 0, //最小値
+//             stepSize: 2, //縦ラベルの数値単位
+//             }
+//         }],
+//       },
+//     }
+//   });

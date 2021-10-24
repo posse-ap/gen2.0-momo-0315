@@ -9,140 +9,141 @@ const postRecordCompleted = document.getElementById('post_record_completed');
 const postRecordCompletedCloseBtn = document.getElementById('post_record_completed_close_button');
 const twitterBtn = document.getElementById('twitter_button');
 
-headerBtn.addEventListener('click', ()=> {
-console.log('あ')
-overlay.style.display = 'block';
-Filter.style.display = 'block';
+headerBtn.addEventListener('click', () => {
+    overlay.style.display = 'block';
+    Filter.style.display = 'block';
 });
 
-closeBtn.addEventListener('click',()=> {
+closeBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
-Filter.style.display = 'none';
+    Filter.style.display = 'none';
 })
 
-overlayBtn.addEventListener('click',()=> {
+overlayBtn.addEventListener('click', () => {
     loading.style.display = 'block'
-    window.setTimeout(function(){
+    window.setTimeout(function () {
         loading.style.display = 'none'
         postRecordCompleted.style.display = 'block'
     }, 3000);
 });
 
-postRecordCompletedCloseBtn.addEventListener('click',() => {
+postRecordCompletedCloseBtn.addEventListener('click', () => {
     postRecordCompleted.style.display = 'none'
     loading.style.display = 'none'
 });
 
-twitterBtn.addEventListener('click', ()=> {
+twitterBtn.addEventListener('click', () => {
     twitterBtn.classList.toggle('fa-check-circle_clicked')
 })
 
-//ここから棒グラフ
+google.load("visualization", "1", { packages: ["barChart"] });
+google.setOnLoadCallback(
+    function () {
+        var data = google.visualization.arrayToDataTable([
+            ["date", "hour", { role: 'style' }],
+            ["", 1,'color: #1378C0'],
+            ["2", 2,'color: #1378C0'],
+            ["", 3,'color: #1378C0'],
+            ["4", 4,'color: #1378C0'],
+            ["", 5,'color: #1378C0'],
+            ["6", 6,'color: #1378C0'],
+            ["", 7,'color: #1378C0'],
+            ["8", 8,'color: #1378C0'],
+            ["", 1,'color: #1378C0'],
+            ["10", 2,'color: #1378C0'],
+            ["", 3,'color: #1378C0'],
+            ["12", 4,'color: #1378C0'],
+            ["", 5,'color: #1378C0'],
+            ["14", 6,'color: #1378C0'],
+            ["", 7,'color: #1378C0'],
+            ["16", 8,'color: #1378C0'],
+            ["", 1,'color: #1378C0'],
+            ["18", 2,'color: #1378C0'],
+            ["", 3,'color: #1378C0'],
+            ["20", 4,'color: #1378C0'],
+            ["", 5,'color: #1378C0'],
+            ["22", 6,'color: #1378C0'],
+            ["", 7,'color: #1378C0'],
+            ["24", 8,'color: #1378C0'],
+            ["", 1,'color: #1378C0'],
+            ["26",2,'color: #1378C0'],
+            ["", 3,'color: #1378C0'],
+            ["28", 4,'color: #1378C0'],
+            ["", 5,'color: #1378C0'],
+            ["30", 6,'color: #1378C0'],
+        ]);
 
-  var ctx = document.getElementById("myBarChart");
-  var myBarChart = new Chart(ctx, {
-    type: 'bar',
-    
-    data: {
-     //凡例のラベル
-      labels: ['2', '4', '6', '8', '10','12', '14', '16', '18', '20','22', '24', '26', '28', '30',],
-      datasets: [
-        {
-          data: [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,], //グラフのデータ
-          backgroundColor: "#1378C0",
-        }
-      ]
-    },
-    options: {
-        // title:false,
-      scales: {
-        xAxes: [{
-            display: true,
-            stacked: false,
-            gridLines: {
-              display: false
-            }
-          }],
-        yAxes: [{
-          ticks: {
-              callback: function(tick) {
-                  return tick.toString()+"h";
-              },
-            display: true,
-            stacked: false,
-            gridLines: {
-              display: false
+        var options = {
+            vAxis: {
+                format: '#h',
+                
             },
-            suggestedMax: 8, //最大値
-            suggestedMin: 0, //最小値
-            stepSize: 2, //縦ラベルの数値単位
-            }
-        }],
-      },
+
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('gct_sample_column'));
+        chart.draw(data, options);
     }
-  });
+);
 
 
-var ctx = document.getElementById("myDoughnutChart1");
-var myDoughnutChart1 = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: [`JavaScript`, "CSS", "PHP", "HTML", "Laravel", "SQL", "SHELL", "情報システム基礎知識（その他）"], //データ項目のラベル
-        datasets: [{
-            backgroundColor: [
-                "#1855EF",
-                "#1170BC",
-                "#20BDDE",
-                "#3CCEFE",
-                "#B39EF3",
-                "#6C47EB",
-                "#6C47EB",
-                "#3004C0",
+google.charts.load("current", { packages: ["coreChart"] });
+google.charts.setOnLoadCallback(drawChart1);
+function drawChart1() {
+    var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work', 42],
+        ['Eat', 18],
+        ['Commute', 10],
+        ['Watch TV', 6],
+        ['Watch TV', 6],
+        ['Watch TV', 6],
+        ['Watch TV', 6],
+        ['Sleep', 6]
+    ]);
+
+    var options = {
+        pieHole: 0.4,
+        window: 10,
+
+        colors: ["#1855EF",
+            "#1170BC",
+            "#20BDDE",
+            "#3CCEFE",
+            "#B39EF3",
+            "#6C47EB",
+            "#6C47EB",
+            "#3004C0",],
+        legend: { position:'none' }
+    };
+
+    var chart1 = new google.visualization.PieChart(document.getElementById('donutChart1'));
+    chart1.draw(data, options);
+}
+
+google.charts.load("current", { packages: ["coreChart"] });
+google.charts.setOnLoadCallback(drawChart2);
+function drawChart2() {
+    var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work', 42],
+        ['Eat', 18],
+        ['Commute', 10],
+        
+    ]);
+
+    var options = {
+        pieHole: 0.4,
+        window: 10,
+        pieSliceBorderColor:'none',
+        colors: [
+            "#1855EF",
+            "#1170BC",
+            "#20BDDE"
             ],
-            data: [42, 18, 10, 5, 5, 5, 10, 5], //グラフのデータ
-        }]
-    },
+        legend: { position: 'none' }
+    };
 
-    options: {
-        title: {
-            display: false,
-            //グラフタイトル
-        },
-        legend: {
-            display: true,
-            position: 'bottom', 
-            
-            labels: {  
-            }
-        }
-    }
-
-  });
-  var ctx = document.getElementById("myDoughnutChart2");
-var myDoughnutChart2 = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: ["ドットインストール","N予備","POSSE課題"], //データ項目のラベル
-        datasets: [{
-            backgroundColor: [
-                "#1855EF",
-                "#1170BC",
-                "#20BDDE"
-            ],
-            data: [42,33,25], //グラフのデータ
-        }]
-    },
-    options: {
-        title: {
-            display: false,
-            //グラフタイトル
-        },
-        legend: {
-            display: true,
-            position: 'bottom', 
-            labels: {  
-            }
-        }
-    }
-  });
-
+    var chart2 = new google.visualization.PieChart(document.getElementById('donutChart2'));
+    chart2.draw(data, options);
+}

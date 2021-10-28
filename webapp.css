@@ -17,7 +17,7 @@ body {
 .header {
     height: 15%;
     background: #ffffff;
-    box-shadow: 2px 2px 10px rgb(214, 214, 214);  
+    box-shadow: 2px 2px 10px rgb(214, 214, 214);
 }
 
 .header_inner {
@@ -102,7 +102,7 @@ body {
     border-radius: 1rem;
     text-align: center;
     line-height: 2.5rem;
-     box-shadow: 2px 2px 10px rgb(214, 214, 214); 
+    box-shadow: 2px 2px 10px rgb(214, 214, 214);
 }
 
 .learning_time_li>span {
@@ -125,7 +125,6 @@ body {
 .bar_graph_wrapper {
     width: 38rem;
     height: auto;
-  
 }
 
 .bar_graph_style {
@@ -133,7 +132,7 @@ body {
     border-radius: 1rem;
     padding: 20px;
     background: #ffffff;
-    box-shadow: 2px 2px 10px rgb(214, 214, 214); 
+    box-shadow: 2px 2px 10px rgb(214, 214, 214);
 }
 
 /* ここから円グラフ */
@@ -141,8 +140,8 @@ body {
 .donutChart1 {
     width: 300px;
     height: 300px;
-    
 }
+
 .donutChart2 {
     width: 300px;
     height: 300px;
@@ -162,7 +161,7 @@ body {
     line-height: 2rem;
     padding: 1rem;
     margin: 20px 20px 20px 0;
-     box-shadow: 2px 2px 10px rgb(214, 214, 214); 
+    box-shadow: 2px 2px 10px rgb(214, 214, 214);
 }
 
 .pie_chart_li>span {
@@ -189,9 +188,11 @@ body {
 .fas {
     margin-right: 0.5rem;
 }
+
 .fas1 {
     color: #1855EF;
 }
+
 .fas2 {
     color: #1170BC;
 }
@@ -232,7 +233,7 @@ body {
     position: absolute;
     top: 5%;
     left: 20%;
-    padding: 1rem 56px 2rem ;
+    padding: 1rem 56px 2rem;
     border-radius: 2rem;
     z-index: 30;
 }
@@ -287,7 +288,7 @@ body {
     box-shadow: 3px 5px 3px rgb(182, 229, 229);
     border-radius: 30px;
     padding: 0.7rem 10rem 0.7rem;
-    margin:  0 0 0 30%;
+    margin: 0 0 0 30%;
 }
 
 .overlay_post_record_button_text {
@@ -390,6 +391,151 @@ input[type="checkbox"]:checked+label {
 }
 
 /* 
+ここからカレンダー 
+*/
+
+.calendar_modal {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 2rem;
+}
+
+.calendar_wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: black;
+    padding: 5rem 18.5em ;
+}
+
+#calendar_header {
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    margin: 1rem 0 1rem;
+}
+
+
+
+#calendar {
+    text-align: center;
+    width: 100%;
+}
+
+table {
+    outline: 0px solid rgba(0, 0, 0, 0);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    color: #000;
+    font-weight: 500;
+    color: #AFC4D4;
+}
+
+th, td {
+    outline: 0px solid rgba(0, 0, 0, 0);
+    padding: 0.6rem 0.6rem;
+    text-align: center;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+
+
+/*日曜日*/
+
+/* td:first-child { */
+    /* color: red; */
+/* } */
+
+/*土曜日*/
+
+/* td:last-child { */
+    /* color: blue; */
+/* } */
+
+/*前後月の日付*/
+
+td.disabled {
+    color: #ccc;
+}
+td.invisible {
+    opacity: 0;
+}
+
+/*本日*/
+
+td.today {
+    background-color: #1378C0;
+    color: #fff;
+    border-radius: 50%;
+}
+
+/*ボタン*/
+
+.calendar_next_prev_button {
+    position: absolute;
+    top: 4.5em;
+    left: 30%;
+    color: royalblue;
+    
+}
+
+.prev_button {
+    cursor: pointer;
+    color: #1376BE;
+    padding: 0.5rem 2rem;
+    margin: 1rem 15rem 0 0;
+    background: none;
+    border: none;
+    font-weight: bold;
+}
+.next_button {
+    cursor: pointer;
+    color: #9EBCD0;
+    padding: 0.5rem 2rem;
+    margin: 1rem 0;
+    background: none;
+    border: none;
+    font-weight: bold;
+}
+
+
+
+#prev {
+    float: left;
+}
+
+#next {
+    float: right;
+}
+.determination_button {
+    border: none;
+    background: linear-gradient(#1378C0, #3CCCFC);
+    box-shadow: 3px 5px 3px rgb(182, 229, 229);
+    border-radius: 30px;
+    padding: 1rem 5rem; 
+    margin: 2rem 0 2rem 30%;
+}
+.determination_button_text {
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #f9f4f2;
+}
+
+/* 
 
 ここからローディング画面
 
@@ -399,8 +545,8 @@ input[type="checkbox"]:checked+label {
     display: none;
     z-index: 30;
     position: absolute;
-    top: 5%;
-    left: 20%;
+    top: 0%;
+    left: 0%;
     background: #ffffff;
     border-radius: 2rem;
     padding: 12rem 25rem;
@@ -475,6 +621,7 @@ input[type="checkbox"]:checked+label {
         transform: rotate(360deg);
     }
 }
+
 .loading_close_button {
     position: absolute;
     top: 5%;
@@ -487,7 +634,6 @@ input[type="checkbox"]:checked+label {
 
 .post_record_completed_whole_wrapper {
     display: none;
-    
 }
 
 .post_record_completed {
@@ -496,8 +642,8 @@ input[type="checkbox"]:checked+label {
     justify-content: flex-end;
     z-index: 50;
     position: absolute;
-    top: 5%;
-    left: 20%;
+    top: 0%;
+    left: 0%;
     background: #ffffff;
     border-radius: 2rem;
     padding: 14rem 26rem;
@@ -509,6 +655,7 @@ input[type="checkbox"]:checked+label {
     text-align: center;
     line-height: 2rem;
 }
+
 .post_record_completed_close_button {
     position: absolute;
     top: 5%;
@@ -541,11 +688,10 @@ input[type="checkbox"]:checked+label {
         padding: 1.5rem;
     }
     .header_button {
-       left: 50%;
-       top: 100%;
-       width: 20rem;
-       height: 5%;
-       
+        left: 50%;
+        top: 100%;
+        width: 20rem;
+        height: 5%;
     }
     .body_wrapper {
         width: auto;
@@ -611,10 +757,18 @@ input[type="checkbox"]:checked+label {
         width: 92%;
         height: 20rem;
     }
-    
     .pie_chart_component_ul {
         list-style: none;
         margin-top: 16px;
     }
-    
+}
+
+.year_month_change_part {
+    position: absolute;
+    top: 99%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+ 
 }

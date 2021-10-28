@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="webapp.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 </head>
 
 <body id="body">
@@ -54,7 +54,7 @@
                 </li>
             </ul>
             <div class="bar_graph_wrapper">
-                <div id="gct_sample_column" class="bar_graph_style"></div>
+                <canvas class="bar_graph_style" id="bar-chart" height="215"></canvas>
             </div>
         </div>
         <div class="pie_chart_page">
@@ -236,8 +236,7 @@
     <!-- modalの中身終了 -->
     <div class="year_month_change_part">
         <i class="fas fa-chevron-left" id="year_month_prev_button"></i>
-        <span id="year_month_displayed">
-aaa
+        <span id="year_month_displayed" class="year_month_displayed">
 
         </span>
         <i class="fas fa-chevron-right" id="year_month_next_button"></i>

@@ -123,12 +123,11 @@ body {
 /* ここから棒グラフ */
 
 .bar_graph_wrapper {
-    width: 38rem;
+    width: 97%;
     height: auto;
 }
 
 .bar_graph_style {
-    height: 25rem;
     border-radius: 1rem;
     padding: 20px;
     background: #ffffff;
@@ -766,9 +765,18 @@ td.today {
 .year_month_change_part {
     position: absolute;
     top: 99%;
-    left: 50%;
+    left: 45%;
     display: flex;
     align-items: center;
     padding-top: 1rem;
  
+}
+.year_month_displayed {
+    padding: 0 2rem;
+}
+.fa-chevron-left {
+    color: #1272BB;
+}
+.fa-chevron-right {
+    color: #9DBCD3;
 }

@@ -36,55 +36,72 @@ twitterBtn.addEventListener('click', () => {
     twitterBtn.classList.toggle('fa-check-circle_clicked')
 })
 
-google.load("visualization", "1", { packages: ["barChart"] });
-google.setOnLoadCallback(
-    function () {
-        var data = google.visualization.arrayToDataTable([
-            ["date", "hour", { role: 'style' }],
-            ["", 1,'color: #1378C0'],
-            ["2", 2,'color: #1378C0'],
-            ["", 3,'color: #1378C0'],
-            ["4", 4,'color: #1378C0'],
-            ["", 5,'color: #1378C0'],
-            ["6", 6,'color: #1378C0'],
-            ["", 7,'color: #1378C0'],
-            ["8", 8,'color: #1378C0'],
-            ["", 1,'color: #1378C0'],
-            ["10", 2,'color: #1378C0'],
-            ["", 3,'color: #1378C0'],
-            ["12", 4,'color: #1378C0'],
-            ["", 5,'color: #1378C0'],
-            ["14", 6,'color: #1378C0'],
-            ["", 7,'color: #1378C0'],
-            ["16", 8,'color: #1378C0'],
-            ["", 1,'color: #1378C0'],
-            ["18", 2,'color: #1378C0'],
-            ["", 3,'color: #1378C0'],
-            ["20", 4,'color: #1378C0'],
-            ["", 5,'color: #1378C0'],
-            ["22", 6,'color: #1378C0'],
-            ["", 7,'color: #1378C0'],
-            ["24", 8,'color: #1378C0'],
-            ["", 1,'color: #1378C0'],
-            ["26",2,'color: #1378C0'],
-            ["", 3,'color: #1378C0'],
-            ["28", 4,'color: #1378C0'],
-            ["", 5,'color: #1378C0'],
-            ["30", 6,'color: #1378C0'],
-        ]);
+var bar_ctx = document.getElementById('bar-chart').getContext('2d');
 
-        var options = {
-            vAxis: {
-                format: '#h',
-                
-            },
+var purple_orange_gradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
+purple_orange_gradient.addColorStop(0, '#3DCEFE');
+purple_orange_gradient.addColorStop(1, '#1170BB');
 
-        };
-
-        var chart = new google.visualization.ColumnChart(document.getElementById('gct_sample_column'));
-        chart.draw(data, options);
+var bar_chart = new Chart(bar_ctx, {
+    type: 'bar',
+    data: {
+        labels: ["","2","","4","","6","","8","","10","","12","","14","","16","","18","","20","","22","","24","","26","","28","","30"],
+        datasets: [{
+            label: '# of Votes',
+            data: [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6],
+						backgroundColor: purple_orange_gradient,
+						hoverBackgroundColor: purple_orange_gradient,
+						hoverBorderWidth: 2,
+						hoverBorderColor: 'purple'
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        scales: {
+            xAxes: [                           // Ｘ軸設定
+                {
+                    scaleLabel: {                 // 軸ラベル
+                        display: false,               
+                    },
+                    gridLines: {                   // 補助線
+                        color: "rgba(0, 0, 0, 0)",
+                        zeroLineColor: "rgba(0, 0, 0, 0)"   // 補助線の色
+                    },
+                    scaleLabel: "<%=value%> kg",
+                    ticks: {                      // 目盛り
+                        fontColor: "#99BBD2",             // 目盛りの色
+                        fontSize: 14                  // フォントサイズ
+                    }
+                }
+            ],
+            yAxes: [                           // Ｙ軸設定
+                {
+                    scaleLabel: {                  // 軸ラベル
+                        display: false,                 
+                    },
+                    gridLines: {                   // 補助線
+                        color: "rgba(0, 0, 0, 0)", // 補助線の色
+                        zeroLineColor: "rgba(0, 0, 0, 0)"         // y=0（Ｘ軸の色）
+                    },
+                    ticks: {                       // 目盛り
+                        min: 0,                        // 最小値
+                        max: 8,                       // 最大値
+                        stepSize: 2,                   // 軸間隔
+                        fontColor: "#99BBD2",             // 目盛りの色
+                        fontSize: 14   , 
+                        callback: function(tick) {
+                            return tick.toString() + 'h';
+                          }
+                                         // フォントサイズ
+                    }
+                }
+            ]
+        }
     }
-);
+});
+
 
 
 google.charts.load("current", { packages: ["coreChart"] });
@@ -151,6 +168,7 @@ function drawChart2() {
 
 
 //ここからカレンダー
+
 const calendarModal = document.getElementById('calendar_modal');
 let calendarInput = document.getElementById('calendar_input');
 const determinationBtn = document.getElementById('determination_button');
@@ -158,8 +176,6 @@ const determinationBtn = document.getElementById('determination_button');
 calendarInput.addEventListener('click', () => {
     calendarModal.style.display = 'block'
 });
-
-
 
 const week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 const today = new Date();
@@ -258,10 +274,19 @@ const yearMonthDisplayed = document.getElementById('year_month_displayed');
 const yearMonthPrevBtn = document.getElementById('year_month_prev_button');
 const yearMonthNextBtn = document.getElementById('year_month_next_button');
 
-yearMonthPrevBtn.addEventListener('click', ()=> {
+var year_text = showDate.getFullYear();
+var month_text = showDate.getMonth();
+var counter = 0;
+yearMonthDisplayed.innerHTML = `${year_text}年${month_text+1}月`
 
+yearMonthPrevBtn.addEventListener('click', ()=> {
+    counter++;
+    yearMonthDisplayed.innerHTML = `${year_text}年${month_text-counter+1}月`
+    console.log(`${year_text}年${month_text+1+counter}月`)
 })
 
-yearMonthNextBtn.addEventListener('click', ()=> {
-    
+yearMonthNextBtn.addEventListener('click', () => {
+    counter++;
+    yearMonthDisplayed.innerHTML = `${year_text}年${month_text+1+counter}月`
+    console.log(`${year_text}年${month_text+1+counter}月`)
 })

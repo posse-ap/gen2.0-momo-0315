@@ -1,14 +1,16 @@
-const headerBtn = document.getElementById('header_button');
-const overlayBtn = document.getElementById('overlay_post_record_button');
-const closeBtn = document.getElementById('overlay_close_button');
-const overlay = document.getElementById('overlay');
-const body = document.getElementById('body');
-const Filter = document.getElementById('black_filter');
-const loading = document.getElementById('loading');
-const postRecordCompleted = document.getElementById('post_record_completed');
-const postRecordCompletedCloseBtn = document.getElementById('post_record_completed_close_button');
-const twitterBtn = document.getElementById('twitter_button');
+const headerBtn = document.getElementById('header_button');//ヘッダーの投稿・記録ボタン取得
+const overlayBtn = document.getElementById('overlay_post_record_button');//モーダルの投稿・記録ボタン取得
+const closeBtn = document.getElementById('overlay_close_button');//モーダルを閉じるボタン取得
+const overlay = document.getElementById('overlay');//モーダル取得
+const body = document.getElementById('body');//body全体取得
+const Filter = document.getElementById('black_filter');//モーダル展開時の背景のフィルター取得
+const loading = document.getElementById('loading');//ローディングのモーダル取得
+const postRecordCompleted = document.getElementById('post_record_completed');//投稿・記録完了画面のモーダル取得
+const postRecordCompletedCloseBtn = document.getElementById('post_record_completed_close_button');//投稿・記録完了画面の閉じるボタン取得
+const twitterCheckMarkBtn = document.getElementById('twitter_check_mark_button');//Twitterに投稿するのチェックマーク取得
+const TweetTextInput = document.getElementById('tweet_comment_input');//Twitterのコメントをかくinput取得
 
+//モーダルの動き
 headerBtn.addEventListener('click', () => {
     overlay.style.display = 'block';
     Filter.style.display = 'block';
@@ -32,16 +34,15 @@ postRecordCompletedCloseBtn.addEventListener('click', () => {
     loading.style.display = 'none'
 });
 
-twitterBtn.addEventListener('click', () => {
-    twitterBtn.classList.toggle('fa-check-circle_clicked')
+twitterCheckMarkBtn.addEventListener('click', () => {
+    twitterCheckMarkBtn.classList.toggle('fa-check-circle_clicked')
 })
 
+//棒グラフ chart.js
 var bar_ctx = document.getElementById('bar-chart').getContext('2d');
-
 var purple_orange_gradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
 purple_orange_gradient.addColorStop(0, '#3DCEFE');
 purple_orange_gradient.addColorStop(1, '#1170BB');
-
 var bar_chart = new Chart(bar_ctx, {
     type: 'bar',
     data: {
@@ -62,39 +63,37 @@ var bar_chart = new Chart(bar_ctx, {
         scales: {
             xAxes: [                           // Ｘ軸設定
                 {
-                    scaleLabel: {                 // 軸ラベル
+                    scaleLabel: {                 // 軸ラベル非表示
                         display: false,               
                     },
-                    gridLines: {                   // 補助線
+                    gridLines: {                   // 補助線透明化
                         color: "rgba(0, 0, 0, 0)",
-                        zeroLineColor: "rgba(0, 0, 0, 0)"   // 補助線の色
+                        zeroLineColor: "rgba(0, 0, 0, 0)"  
                     },
-                    scaleLabel: "<%=value%> kg",
-                    ticks: {                      // 目盛り
-                        fontColor: "#99BBD2",             // 目盛りの色
-                        fontSize: 14                  // フォントサイズ
+                    ticks: {                     
+                        fontColor: "#99BBD2",             
+                        fontSize: 14                  
                     }
                 }
             ],
             yAxes: [                           // Ｙ軸設定
                 {
-                    scaleLabel: {                  // 軸ラベル
+                    scaleLabel: {                  // 軸ラベル非表示
                         display: false,                 
                     },
-                    gridLines: {                   // 補助線
-                        color: "rgba(0, 0, 0, 0)", // 補助線の色
-                        zeroLineColor: "rgba(0, 0, 0, 0)"         // y=0（Ｘ軸の色）
+                    gridLines: {                   // 補助線非表示
+                        color: "rgba(0, 0, 0, 0)", 
+                        zeroLineColor: "rgba(0, 0, 0, 0)"        
                     },
                     ticks: {                       // 目盛り
                         min: 0,                        // 最小値
                         max: 8,                       // 最大値
                         stepSize: 2,                   // 軸間隔
-                        fontColor: "#99BBD2",             // 目盛りの色
+                        fontColor: "#99BBD2",            
                         fontSize: 14   , 
                         callback: function(tick) {
                             return tick.toString() + 'h';
                           }
-                                         // フォントサイズ
                     }
                 }
             ]
@@ -103,20 +102,20 @@ var bar_chart = new Chart(bar_ctx, {
 });
 
 
-
+//学習言語のドーナツチャート google.chart
 google.charts.load("current", { packages: ["coreChart"] });
 google.charts.setOnLoadCallback(drawChart1);
 function drawChart1() {
     var data = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['Work', 42],
-        ['Eat', 18],
-        ['Commute', 10],
-        ['Watch TV', 6],
-        ['Watch TV', 6],
-        ['Watch TV', 6],
-        ['Watch TV', 6],
-        ['Sleep', 6]
+        ['language', 'per Day'],
+        ['JavaScript', 42],
+        ['CSS', 6],
+        ['PHP', 18],
+        ['HTML', 10],
+        ['Laravel', 6],
+        ['SQL', 6],
+        ['SHELL', 6],
+        ['情報システム基礎知識', 6]
     ]);
 
     var options = {
@@ -139,14 +138,15 @@ function drawChart1() {
     chart1.draw(data, options);
 }
 
+//学習コンテンツのドーナツチャート google.chart
 google.charts.load("current", { packages: ["coreChart"] });
 google.charts.setOnLoadCallback(drawChart2);
 function drawChart2() {
     var data = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['Work', 42],
-        ['Eat', 18],
-        ['Commute', 10],
+        ['Contents', 'per Day'],
+        ['ドットインストール', 42],
+        ['N予備', 18],
+        ['POSSE課題', 10],
         
     ]);
 
@@ -166,9 +166,7 @@ function drawChart2() {
     chart2.draw(data, options);
 }
 
-
-//ここからカレンダー
-
+//カレンダー
 const calendarModal = document.getElementById('calendar_modal');
 let calendarInput = document.getElementById('calendar_input');
 const determinationBtn = document.getElementById('determination_button');
@@ -188,13 +186,13 @@ var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
        
     };
 
-// 前の月表示
+// 前の月透明で表示
 function prev(){
     showDate.setMonth(showDate.getMonth() - 1);
     showProcess(showDate);
 }
 
-// 次の月表示
+// 次の月透明で表示
 function next(){
     showDate.setMonth(showDate.getMonth() + 1);
     showProcess(showDate);
@@ -205,11 +203,8 @@ function showProcess(date) {
     var year = date.getFullYear();
     var month = date.getMonth();
     document.querySelector('#calendar_header').innerHTML = year + "年 " + (month + 1) + "月";
-
     var calendar = createProcess(year, month);
     document.querySelector('#calendar').innerHTML = calendar;
-   
-  
 }
 
 // カレンダー作成
@@ -241,7 +236,7 @@ function createProcess(year, month) {
                 count++;
                 calendar += `<td class='invisible' onclick=input(${year},${month+1},${count})>` + (count - endDate) + "</td>";
             } else {
-                // 当月の日付を曜日に照らし合わせて設定
+                // 当月の日付を曜日に照らし合わせて設定、青丸つける
                 count++;
                 if (count < today.getDate()){
                     calendar += `<td class='disabled' onclick=input(${year},${month+1},${count})>` + count + "</td>";
@@ -255,12 +250,11 @@ function createProcess(year, month) {
                 } 
             }
         }
-
         calendar += "</tr>";
     }
     return calendar;
 }
-
+//日付をクリックしたらinputに反映させる
 function input(year,month,date) {
     calendarInput.value = `${year}年${month}月${date}日`
     console.log(year + "年 " + month + "月" + date + "日")
@@ -290,3 +284,29 @@ yearMonthNextBtn.addEventListener('click', () => {
     yearMonthDisplayed.innerHTML = `${year_text}年${month_text+1+counter}月`
     console.log(`${year_text}年${month_text+1+counter}月`)
 })
+
+//Twitter投稿機能
+var TweetText = TweetTextInput.value;
+$(function(){
+    $('#tweet_button').click(function(){
+        if($('[name="tweet_button"]').prop('checked')){
+            console.log('チェックされてるよ')
+            overlayBtn.innerText = "";
+            const anchor = document.createElement('a');
+            const hrefValue =
+              'https://twitter.com/intent/tweet?button_hashtag=あなたのいいところ&ref_src=twsrc%5Etfw';
+              
+            anchor.setAttribute('href', hrefValue);
+            anchor.className = 'twitter-hashtag-button';
+            anchor.setAttribute('data-text', TweetText);
+            anchor.innerText = '診断・投稿';
+            
+            overlayBtn.appendChild(anchor);
+        }else{
+            console.log('チェックされてないよ')
+            var element = overlayBtn.childNodes[0];
+            overlayBtn.removeChild(element);
+            overlayBtn.innerText = "診断・投稿";
+        }
+    });
+});

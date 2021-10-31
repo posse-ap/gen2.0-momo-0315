@@ -13,6 +13,7 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="webapp.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body id="body">
@@ -195,11 +196,11 @@
                 </div>
                 <div class="twitter_comment">
                     <span class="overlay_each_tittle">Twitter用コメント</span>
-                    <input type="text" class="twitter_input">
-
-                    <div class="share_twitter">
-                        <i class="fas fa-check-circle fa-2x" id="twitter_button"></i><span>Twitterにシェアする</span>
-                    </div>
+                    <input type="text" class="twitter_input" id="tweet_comment_input">
+                    <input type="checkbox" id="tweet_button" name="tweet_button">
+                    <label class="share_twitter" for="tweet_button">
+                        <i class="fas fa-check-circle fa-2x" id="twitter_check_mark_button"></i><span>Twitterにシェアする</span>
+                    </label>
                 </div>
             </div>
         </div>
@@ -247,7 +248,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="webapp.js"></script>
-
+    
 </body>
 
 </html>

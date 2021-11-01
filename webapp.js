@@ -32,6 +32,8 @@ overlayBtn.addEventListener('click', () => {
 postRecordCompletedCloseBtn.addEventListener('click', () => {
     postRecordCompleted.style.display = 'none'
     loading.style.display = 'none'
+    overlay.style.display = 'none';
+    Filter.style.display = 'none';
 });
 
 twitterCheckMarkBtn.addEventListener('click', () => {
@@ -238,8 +240,13 @@ function createProcess(year, month) {
             } else {
                 // 当月の日付を曜日に照らし合わせて設定、青丸つける
                 count++;
-                if (count < today.getDate()){
+                if (month == (today.getMonth())
+                && count < today.getDate()){
                     calendar += `<td class='disabled' onclick=input(${year},${month+1},${count})>` + count + "</td>";
+                }
+                if(month != (today.getMonth())
+                && count == today.getDate()){
+                    calendar += `<td onclick=input(${year},${month+1},${count})>` + count + `</td>`;
                 }
                 if(year == today.getFullYear()
                   && month == (today.getMonth())
@@ -286,7 +293,7 @@ yearMonthNextBtn.addEventListener('click', () => {
 })
 
 //Twitter投稿機能
-var TweetText = TweetTextInput.value;
+// var TweetText = document.forms.tweetForm.tweetCommentInput.value;
 $(function(){
     $('#tweet_button').click(function(){
         if($('[name="tweet_button"]').prop('checked')){
@@ -298,7 +305,7 @@ $(function(){
               
             anchor.setAttribute('href', hrefValue);
             anchor.className = 'twitter-hashtag-button';
-            anchor.setAttribute('data-text', TweetText);
+            anchor.setAttribute('data-text', 'あああ');
             anchor.innerText = '診断・投稿';
             
             overlayBtn.appendChild(anchor);
@@ -310,3 +317,5 @@ $(function(){
         }
     });
 });
+
+

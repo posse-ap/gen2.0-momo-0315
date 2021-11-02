@@ -42,9 +42,9 @@ twitterCheckMarkBtn.addEventListener('click', () => {
 
 //棒グラフ chart.js
 var bar_ctx = document.getElementById('bar-chart').getContext('2d');
-var purple_orange_gradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
-purple_orange_gradient.addColorStop(0, '#3DCEFE');
-purple_orange_gradient.addColorStop(1, '#1170BB');
+var blue_gradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
+blue_gradient.addColorStop(0, '#3DCEFE');
+blue_gradient.addColorStop(1, '#0056c0');
 var bar_chart = new Chart(bar_ctx, {
     type: 'bar',
     data: {
@@ -52,8 +52,8 @@ var bar_chart = new Chart(bar_ctx, {
         datasets: [{
             label: '# of Votes',
             data: [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6],
-						backgroundColor: purple_orange_gradient,
-						hoverBackgroundColor: purple_orange_gradient,
+						backgroundColor: blue_gradient,
+						hoverBackgroundColor: blue_gradient,
 						hoverBorderWidth: 2,
 						hoverBorderColor: 'purple'
         }]

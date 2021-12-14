@@ -42,4 +42,3 @@ INSERT INTO choices (quistion_id,name,valid) VALUES
 (3,"むこうひら",0),
 (3,"むきひら",0),
 (3,"むかいなだ",1);
-

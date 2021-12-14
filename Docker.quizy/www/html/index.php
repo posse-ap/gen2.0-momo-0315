@@ -1,36 +1,71 @@
 <?php
 // echo phpinfo();
+//data source name 
+$dsn = 'mysql:dbname=quizy;charset=utf8;host=db';
+$user = 'momo';
+$password = 'password';
 
-// function dbConnect() 
+// function dbConnect() {
     try {
-    //data source name 
-    $dsn = 'mysql:dbname=quizy;charset=utf8;host=db';
-    $user = 'momo';
-    $password = 'password';
+    echo $_SERVER['REQUEST_URI'] . PHP_EOL;
 
-    // $options = [
-    //     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    //     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    //     PDO::ATTR_EMULATE_PREPARES => false,
-    // ]
+    $dbh = new PDO($dsn, $user, $password,
+    [   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false,]
+);
+        echo "おめでとうううう接続成功だよ(`·⊝·´)" . PHP_EOL;
 
-    $dbh = new PDO($dsn, $user, $password);
+    //SQLを発行 big_questionsというtableをとってくる
+    $stmt = $dbh->query("SELECT * FROM big_questions");
 
-    echo "おめでとうううう接続成功だよ(`·⊝·´)\n";
-
-    //SQLを発行
-    $stmt = $dbh->query
-    ("SELECT * FROM big_questions");
-
+    //tableの値を取得
     $results = $stmt->fetch();
+    // foreach($results as $result) {
+    //     printf (
+    //         '%s(%d)' . PHP_EOL,
+    //         $result['id'],
+    //         $result['name']
+    //     );
+    // }
     var_dump($results["name"]);
+    var_dump($stmt);
 
-} catch (PDOException $e) {
-    echo "(´･ω･`)人(`･ω･´)ﾄﾞﾝﾏｲ!!: " . $e->getMessage() . PHP_EOL;
-    exit();
-}
-// return $dbh
+    //where句 検索条件を指定
+    //変動値を使うからprepared statement
+
+    $sql = 'SELECT * FROM big_questions WHERE id = ?';
+    $prepare = $dbh->prepare($sql);
+
+    //id = 1の時
+    $id =1;
+    $prepare->bindValue(1, (int)$id, PDO::PARAM_INT);
+    $prepare->execute();
+    $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($result) . "\n";
+
+    // //id = 2の時
+    $id =2;
+    $prepare->bindValue(1, (int)$id, PDO::PARAM_INT);
+    $prepare->execute();
+    $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($result);
+
+         } catch (PDOException $e) {
+            echo "(´･ω･`)人(`･ω･´)ﾄﾞﾝﾏｲ!!: " . $e->getMessage() . PHP_EOL;
+            exit();
+        }
+//     return $dbn
 // }
+
+// function display() {
+
+    // $dbn = dbConnect();
+
+// }
+
+// $result = getData();
+
 ?>
 
 <!DOCTYPE html>
@@ -132,6 +167,7 @@
     
         <div class="shiritori">
             <a href="https://kuizy.net/shiritori">
+            <?php ?>
                 📢 新登場！絵を描いてしりとりをするゲームがkuizyに登場！詳しくは<span>こちら</span>！
             </a>
     

@@ -33,8 +33,6 @@ services:
       MYSQL_ROOT_PASSWORD: secret 
 
       
-
-
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:

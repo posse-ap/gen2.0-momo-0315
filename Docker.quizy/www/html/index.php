@@ -1,17 +1,36 @@
 <?php
 // echo phpinfo();
 
-$dsn = 'mysql:dbname=quizy;charset=utf8;host=db';
-$user = 'momo';
-$password = 'password';
+// function dbConnect() 
+    try {
+    //data source name 
+    $dsn = 'mysql:dbname=quizy;charset=utf8;host=db';
+    $user = 'momo';
+    $password = 'password';
 
-try {
+    // $options = [
+    //     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    //     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    //     PDO::ATTR_EMULATE_PREPARES => false,
+    // ]
+
     $dbh = new PDO($dsn, $user, $password);
+
     echo "おめでとうううう接続成功だよ(`·⊝·´)\n";
+
+    //SQLを発行
+    $stmt = $dbh->query
+    ("SELECT * FROM big_questions");
+
+    $results = $stmt->fetch();
+    var_dump($results["name"]);
+
 } catch (PDOException $e) {
-    echo "どんまい: " . $e->getMessage() . "\n";
+    echo "(´･ω･`)人(`･ω･´)ﾄﾞﾝﾏｲ!!: " . $e->getMessage() . PHP_EOL;
     exit();
 }
+// return $dbh
+// }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +40,7 @@ try {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php print($result['name']);?></title>
+    <title><?php var_dump($results["name"]);?></title>
     <link rel="stylesheet" href="quizy.css">
 </head>
 
@@ -117,12 +136,12 @@ try {
             </a>
     
         </div>
-    
+     
         <!-- クイズを表示してる部分 -->
-        <div class="container content-wrapper">
+         <div class="container content-wrapper">
             <div class="clearfix header-spacer"></div>
             
-            <h1>ガチで東京の人しか解けない！＃東京の難読地名クイズ</h1>
+            <h1>ガチで東京の人しか解けない！#<?php var_dump($results['name']);?></h1>
     
             <img class="img_K" src="https://pbs.twimg.com/profile_images/1352968042024562688/doQgizBj_400x400.jpg" alt="">
     
@@ -140,4 +159,4 @@ try {
     <script src=quizy.js></script>
     </body>
     
-    </html>
+    </html> 

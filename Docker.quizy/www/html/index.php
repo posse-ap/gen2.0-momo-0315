@@ -1,70 +1,31 @@
 <?php
 // echo phpinfo();
+
 //data source name 
 $dsn = 'mysql:dbname=quizy;charset=utf8;host=db';
 $user = 'momo';
 $password = 'password';
 
-// function dbConnect() {
     try {
-    echo $_SERVER['REQUEST_URI'] . PHP_EOL;
-
-    $dbh = new PDO($dsn, $user, $password,
-    [   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        $dbh = new PDO($dsn, $user, $password,
+        $options = [   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,]
-);
+        PDO::ATTR_EMULATE_PREPARES => false,
+        PDO::MYSQL_ATTR_USE_BUFFERED_QUERY,
+        ]
+    );
         echo "おめでとうううう接続成功だよ(`·⊝·´)" . PHP_EOL;
 
-    //SQLを発行 big_questionsというtableをとってくる
-    $stmt = $dbh->query("SELECT * FROM big_questions");
 
-    //tableの値を取得
-    $results = $stmt->fetch();
-    // foreach($results as $result) {
-    //     printf (
-    //         '%s(%d)' . PHP_EOL,
-    //         $result['id'],
-    //         $result['name']
-    //     );
-    // }
-    var_dump($results["name"]);
-    var_dump($stmt);
+//SQLを発行 big_questionsというtableをとってくる
+    $Data = $dbh->prepare('SELECT * FROM big_questions WHERE id=?');
+    $Data->execute(array($_REQUEST['id']));
+    $result = $Data->fetch();
 
-    //where句 検索条件を指定
-    //変動値を使うからprepared statement
-
-    $sql = 'SELECT * FROM big_questions WHERE id = ?';
-    $prepare = $dbh->prepare($sql);
-
-    //id = 1の時
-    $id =1;
-    $prepare->bindValue(1, (int)$id, PDO::PARAM_INT);
-    $prepare->execute();
-    $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($result) . "\n";
-
-    // //id = 2の時
-    $id =2;
-    $prepare->bindValue(1, (int)$id, PDO::PARAM_INT);
-    $prepare->execute();
-    $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($result);
-
-         } catch (PDOException $e) {
-            echo "(´･ω･`)人(`･ω･´)ﾄﾞﾝﾏｲ!!: " . $e->getMessage() . PHP_EOL;
-            exit();
-        }
-//     return $dbn
-// }
-
-// function display() {
-
-    // $dbn = dbConnect();
-
-// }
-
-// $result = getData();
+    } catch (PDOException $e) {
+        echo "(´･ω･`)人(`･ω･´)ﾄﾞﾝﾏｲ!!: " . $e->getMessage();
+        exit();
+    }
 
 ?>
 
@@ -75,7 +36,7 @@ $password = 'password';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php var_dump($results["name"]);?></title>
+    <title><?php var_dump($result['name']);?></title>
     <link rel="stylesheet" href="quizy.css">
 </head>
 
@@ -177,7 +138,7 @@ $password = 'password';
          <div class="container content-wrapper">
             <div class="clearfix header-spacer"></div>
             
-            <h1>ガチで東京の人しか解けない！#<?php var_dump($results['name']);?></h1>
+            <h1>ガチで東京の人しか解けない！#<?php var_dump($result['name']);?></h1>
     
             <img class="img_K" src="https://pbs.twimg.com/profile_images/1352968042024562688/doQgizBj_400x400.jpg" alt="">
     

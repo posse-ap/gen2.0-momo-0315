@@ -20,7 +20,7 @@ image TEXT NOT NULL
 )DEFAULT CHARACTER SET=utf8;
  
 INSERT INTO questions (big_quistion_id,image) VALUES 
-(1,"takanawa.png"),(1,'kameido.png'),(2,'mukainada.png');
+(1,"https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png"),(1,'kameido.png'),(2,'mukainada.png');
 
 
 DROP TABLE IF EXISTS choices;

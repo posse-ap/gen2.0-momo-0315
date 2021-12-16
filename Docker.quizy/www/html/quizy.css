@@ -6,9 +6,13 @@ header>.content-wrapper {
     align-items: center;
     flex-direction: row;
     align-content: center;
-    width: 720px;
-    justify-content: space-between;
-   margin: 0 auto;
+}
+
+.content-wrapper {
+    height: auto;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* 三本線のオープンメニュー */
@@ -61,7 +65,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /* margin-right: 100px; */
+    margin-right: 100px;
 }
 
 /* オレンジのボタン */

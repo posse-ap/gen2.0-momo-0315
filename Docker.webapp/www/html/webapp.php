@@ -1,19 +1,7 @@
-<?php
-        $dsn = 'mysql:host=db;dbname=quizy;charset=utf8';
-        $user = 'momo';
-        $password = 'password';
-    try {
-        $dbh = new PDO($dsn, $user, $password);
-        echo "おめでとうううう接続成功だよ(`·⊝·´)" . PHP_EOL;
-    
-    } catch (PDOException $e) {
-        echo "(´･ω･`)人(`･ω･´)ﾄﾞﾝﾏｲ!!: " . $e->getMessage() . "\n";
-        exit();
-    }   
-
-    
+<?php 
+// tableとの接続
+require('./setting.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -24,12 +12,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="reset.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="webapp.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 </head>
 
 <body id="body">
@@ -42,9 +34,6 @@
                 <div class="header_text">4th week
                 </div>
             </div>
-
-
-
         </div>
     </header>
     <button class="header_button" id="header_button">
@@ -56,17 +45,17 @@
             <ul class="learning_time_ul">
                 <li class="learning_time_li">
                     <span>Today</span>
-                    <time>3</time>
+                    <time><?php echo $today_study_time?></time>
                     <hour>hour</hour>
                 </li>
                 <li class="learning_time_li">
                     <span>Month</span>
-                    <time>120</time>
+                    <time><?php echo $month_study_time?></time>
                     <hour>hour</hour>
                 </li>
                 <li class="learning_time_li">
                     <span>Total</span>
-                    <time>1348</time>
+                    <time><?php  echo $total_learning_time?></time>
                     <hour>hour</hour>
                 </li>
             </ul>
@@ -79,44 +68,37 @@
                 <li class="pie_chart_li">
                     <span>学習言語</span>
                     <div id="donutChart1" class="donutChart1"></div>
-                    <ul class="pie_chart_component_ul">
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle fas1"></i><span>JavaScript　</span>
-                            <i class="fas fa-circle fas2"></i><span>CSS　</span>
-                            <i class="fas fa-circle fas3"></i><span>PHP　</span>
-                        </li>
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle fas4"></i><span>HTML　</span>
-                            <i class="fas fa-circle fas5"></i><span>Laravel　</span>
-                            <i class="fas fa-circle fas6"></i><span>SQL　</span>
-                        </li>
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle fas7"></i><span>SHELL</span>
-                        </li>
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle fas8"></i><span>情報システム基礎知識（その他）</span>
-                        </li>
 
-                    </ul>
 
+                    <?php 
+                            foreach ($languages as $language) : ?>
+                    <div>
+                        <i class="fas fa-circle" style='color:<?php echo $language['color']?>'>
+                        </i>
+                        <span><?php echo $language['language']?></span>
+                    </div>
+                    <?php endforeach;?>
                 </li>
                 <li class="pie_chart_li">
                     <span>学習コンテンツ</span>
                     <div id="donutChart2" class="donutChart2"></div>
 
                     <ul class="pie_chart_component_ul">
-                        <li class="pie_chart_component_li"><i class="fas fa-circle fas1"></i><span>ドットインストール</span></li>
-                        <li class="pie_chart_component_li"><i class="fas fa-circle fas2"></i><span>N予備校</span></li>
-                        <li class="pie_chart_component_li"><i class="fas fa-circle fas3"></i><span>POSSE課題</span></li>
+                        <?php 
+                            foreach ($contents as $content) : ?>
+                        <li class="pie_chart_component_li">
+                            <i class="fas fa-circle" style='color:<?php echo $content['color']?>'>
+                            </i>
+                            <span><?php echo $content['content']?></span>
+                        </li>
+                        <?php endforeach;?>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 
-    <!-- 
-    もーだる
- -->
+    <!-- もーだる-->
     <div class="black_filter" id="black_filter"></div>
     <div class="overlay" id="overlay">
         <div class="overlay_wrapper">
@@ -149,55 +131,26 @@
                 </div>
                 <div class="learning_content">
                     <span class="overlay_each_tittle">学習コンテンツ（複数選択可）</span>
+
                     <div class="overlay_leaning_contents_wrapper">
-                        <div class="overlay_input_horizontal">
-                            <input type="checkbox" class="overlay_input" id="Nyobi">
-                            <label class="overlay_input_element" for="Nyobi"><i
-                                    class="fas fa-check-circle"></i>N予備</label>
-                            <input type="checkbox" class="overlay_input" id="dotinstall">
-                            <label class="overlay_input_element" for="dotinstall"><i
-                                    class="fas fa-check-circle"></i>ドットインストール</label>
-                        </div>
-                        <input type="checkbox" class="overlay_input" id="posse">
-                        <label class="overlay_input_element" for="posse"><i
-                                class="fas fa-check-circle"></i>POSSE課題</label>
+                        <?php foreach ($contents as $content) : ?>
+                        <input type="checkbox" class="overlay_input" id=<?php echo $content['content']?>>
+                        <label class="overlay_input_element" for=<?php echo $content['content']?>>
+                            <i class="fas fa-check-circle"></i>
+                            <?php echo $content['content'] . "　";?>
+                        </label>
+                        <?php endforeach; ?>
                     </div>
                     <div class="learning_language">
                         <span class="overlay_each_tittle">学習言語（複数選択可）</span>
                         <div class="overlay_leaning_contents_wrapper">
-                            <div class="overlay_input_horizontal">
-                                <input type="checkbox" class="overlay_input" id="html">
-                                <label class="overlay_input_element" for="html"><i
-                                        class="fas fa-check-circle"></i>HTML</label>
-                                <input type="checkbox" class="overlay_input" id="css">
-                                <label class="overlay_input_element" for="css"><i
-                                        class="fas fa-check-circle"></i>CSS</label>
-                                <input type="checkbox" class="overlay_input" id="js">
-                                <label class="overlay_input_element" for="js"><i
-                                        class="fas fa-check-circle"></i>JavaScript</label>
-
-                            </div>
-                            <div class="overlay_input_horizontal">
-                                <input type="checkbox" class="overlay_input" id="php">
-                                <label class="overlay_input_element" for="php"><i
-                                        class="fas fa-check-circle"></i>PHP</label>
-                                <input type="checkbox" class="overlay_input" id="laravel">
-                                <label class="overlay_input_element" for="laravel"><i
-                                        class="fas fa-check-circle"></i>Laravel</label>
-
-                                <input type="checkbox" class="overlay_input" id="sql">
-                                <label class="overlay_input_element" for="sql"><i
-                                        class="fas fa-check-circle"></i>SQL</label>
-                                <input type="checkbox" class="overlay_input" id="shell">
-                                <label class="overlay_input_element" for="shell"><i
-                                        class="fas fa-check-circle"></i>SHELL</label>
-
-                            </div>
-                            <div class="overlay_input_horizontal">
-                                <input type="checkbox" class="overlay_input" id="informationsystem">
-                                <label div class="overlay_input_element" for="informationsystem"><i
-                                        class="fas fa-check-circle"></i>情報システム基礎知識（その他）</label>
-                            </div>
+                            <?php foreach ($languages as $language) : ?>
+                            <input type="checkbox" class="overlay_input" id=<?php echo $language['language']?>>
+                            <label class="overlay_input_element" for=<?php echo $language['language']?>>
+                                <i class="fas fa-check-circle"></i>
+                                <?php echo $language['language'] . "　";?>
+                            </label>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -213,7 +166,8 @@
                     <input type="text" class="twitter_input" id="tweet_comment_input">
                     <input type="checkbox" id="tweet_button" name="tweet_button">
                     <label class="share_twitter" for="tweet_button">
-                        <i class="fas fa-check-circle fa-2x" id="twitter_check_mark_button"></i><span>Twitterにシェアする</span>
+                        <i class="fas fa-check-circle fa-2x"
+                            id="twitter_check_mark_button"></i><span>Twitterにシェアする</span>
                     </label>
                 </div>
             </div>
@@ -223,20 +177,14 @@
             <span class="overlay_post_record_button_text">投稿・記録
             </span>
         </button>
-        <!-- 
-    
-    loading overlay
-    
-     -->
+
+        <!-- loading overlay -->
         <div class="loading_wrapper" id="loading">
             <i class="fas fa-times loading_close_button" id="close_button"></i>
             <div class="loader"></div>
         </div>
-        <!-- 
-            
-            awesome 
-        
-        -->
+
+        <!-- awesome  -->
         <div class="post_record_completed_whole_wrapper" id="post_record_completed">
             <div class="post_record_completed">
                 <i class="fas fa-times post_record_completed_close_button" id="post_record_completed_close_button"></i>
@@ -249,6 +197,7 @@
         </div>
     </div>
     <!-- modalの中身終了 -->
+
     <div class="year_month_change_part">
         <i class="fas fa-chevron-left" id="year_month_prev_button"></i>
         <span id="year_month_displayed" class="year_month_displayed">
@@ -257,13 +206,11 @@
         <i class="fas fa-chevron-right" id="year_month_next_button"></i>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- 学習言語のドーナツチャート google.chart読み込み -->
+    <?php 
+    require('./graph.php');
+    ?>
     <script src="webapp.js"></script>
-    
 </body>
 
 </html>
-

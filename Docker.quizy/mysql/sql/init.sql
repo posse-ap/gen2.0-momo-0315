@@ -24,7 +24,7 @@ option_3 VARCHAR(225) NOT NULL
 
 INSERT INTO choices (img, big_question_id, question_id, option_1, option_2, option_3) VALUES 
 ('https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png',1, 1, 'たかなわ', 'たかわ', 'こうわ'),
-('https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png', 1, 2, 'かめイド', 'かめと', 'かめど'),
+('https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png', 1, 2, 'かめいど', 'かめと', 'かめど'),
 ('https://d1khcm40x1j0f.cloudfront.net/quiz/ad4f8badd896f1a9b527c530ebf8ac7f.png', 1, 3, 'こうじまち', 'かゆまち', 'おかとまち'),
 ('https://d1khcm40x1j0f.cloudfront.net/quiz/ee645c9f43be1ab3992d121ee9e780fb.png', 1, 4, 'おなりもん', 'おかどもん', 'ごせいもん'),
 ('https://d1khcm40x1j0f.cloudfront.net/quiz/6a235aaa10f0bd3ca57871f76907797b.png', 1, 5, 'とどろき', 'たたらき', 'たたら'),

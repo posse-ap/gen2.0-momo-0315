@@ -13,7 +13,7 @@
 
     $id = $_GET['id'];
 
-    //選択肢をchoices tableからfetch allで取得、その時のidを取得
+    //選択肢をchoices tableからfetch allで取得
     $options = $dbh->prepare('SELECT * FROM choices WHERE big_question_id='.$id);
     $options->execute(array($_REQUEST['id']));
     $options_result = $options->fetchAll();

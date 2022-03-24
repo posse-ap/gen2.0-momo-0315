@@ -77,14 +77,14 @@ google.charts.setOnLoadCallback(drawChart1);
 function drawChart1() {
     var data = google.visualization.arrayToDataTable([
         ['language', 'per Day'],
-        ['JavaScript', 42],
-        ['CSS', 6],
-        ['PHP', 18],
-        ['HTML', 10],
-        ['Laravel', 6],
-        ['SQL', 6],
-        ['SHELL', 6],
-        ['情報システム基礎知識', 6]
+        <?php 
+        foreach($languages as $language){}
+        foreach($language_learning_hours as $language_learning_hour) {
+    
+            
+           echo "[" . $language["language"] . "," . $language_learning_hour[0] . "],";
+    }
+        ?>
     ]);
     var options = {
         pieHole: 0.4,

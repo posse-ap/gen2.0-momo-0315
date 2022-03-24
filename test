@@ -1,15 +1,9 @@
-test
+WITH ROLLUP
+グループ毎に集計したデータの合計
 
-
-quizy.js
-
-reset.css
-{}
-.
-#
-
-font
-
-ul {
-    
-}
+ foreach($language_graphs as $language_graph){?>
+        
+['<?php echo $language_graph['language'] ?>',
+  <?php echo $language_graph['learning_time'] ?>],
+  <br>
+<?php };?> 

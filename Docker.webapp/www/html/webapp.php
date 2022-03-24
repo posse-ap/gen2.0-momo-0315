@@ -45,12 +45,12 @@ require('./setting.php');
             <ul class="learning_time_ul">
                 <li class="learning_time_li">
                     <span>Today</span>
-                    <time><?php echo $today_study_time?></time>
+                    <time><?php echo $today_learning_time?></time>
                     <hour>hour</hour>
                 </li>
                 <li class="learning_time_li">
                     <span>Month</span>
-                    <time><?php echo $month_study_time?></time>
+                    <time><?php echo $month_learning_time?></time>
                     <hour>hour</hour>
                 </li>
                 <li class="learning_time_li">

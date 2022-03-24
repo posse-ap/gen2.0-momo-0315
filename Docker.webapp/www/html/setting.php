@@ -5,7 +5,7 @@
     try {
         $dbh = new PDO($dsn, $user, $password);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "おめでとうううう接続成功だよ( ㆆ ㆆ)و✧<br>";
+        echo "おめでとうううう接続成功だよ( ㆆ ㆆ)و✧<br>あれtable書き換えてたら表示されなくなつた。。<br>";
         // phpinfo();
     
     } catch (PDOException $e) {

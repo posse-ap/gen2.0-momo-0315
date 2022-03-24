@@ -1,4 +1,4 @@
-<?php 
+<?php
 // tableとの接続
 require('./setting.php');
 ?>
@@ -12,8 +12,7 @@ require('./setting.php');
     <title>Document</title>
     <link rel="stylesheet" href="reset.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="webapp.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -45,17 +44,17 @@ require('./setting.php');
             <ul class="learning_time_ul">
                 <li class="learning_time_li">
                     <span>Today</span>
-                    <time><?php echo $today_learning_time?></time>
+                    <time><?php echo $today_learning_time ?></time>
                     <hour>hour</hour>
                 </li>
                 <li class="learning_time_li">
                     <span>Month</span>
-                    <time><?php echo $month_learning_time?></time>
+                    <time><?php echo $month_learning_time ?></time>
                     <hour>hour</hour>
                 </li>
                 <li class="learning_time_li">
                     <span>Total</span>
-                    <time><?php  echo $total_learning_time?></time>
+                    <time><?php echo $total_learning_time ?></time>
                     <hour>hour</hour>
                 </li>
             </ul>
@@ -70,28 +69,28 @@ require('./setting.php');
                     <div id="donutChart1" class="donutChart1"></div>
 
 
-                    <?php 
-                            foreach ($languages as $language) : ?>
-                    <div>
-                        <i class="fas fa-circle" style='color:<?php echo $language['color']?>'>
-                        </i>
-                        <span><?php echo $language['language']?></span>
-                    </div>
-                    <?php endforeach;?>
+                    <?php
+                    foreach ($languages as $language) : ?>
+                        <div>
+                            <i class="fas fa-circle" style='color:<?php echo $language['color'] ?>'>
+                            </i>
+                            <span><?php echo $language['language'] ?></span>
+                        </div>
+                    <?php endforeach; ?>
                 </li>
                 <li class="pie_chart_li">
                     <span>学習コンテンツ</span>
                     <div id="donutChart2" class="donutChart2"></div>
 
                     <ul class="pie_chart_component_ul">
-                        <?php 
-                            foreach ($contents as $content) : ?>
-                        <li class="pie_chart_component_li">
-                            <i class="fas fa-circle" style='color:<?php echo $content['color']?>'>
-                            </i>
-                            <span><?php echo $content['content']?></span>
-                        </li>
-                        <?php endforeach;?>
+                        <?php
+                        foreach ($contents as $content) : ?>
+                            <li class="pie_chart_component_li">
+                                <i class="fas fa-circle" style='color:<?php echo $content['color'] ?>'>
+                                </i>
+                                <span><?php echo $content['content'] ?></span>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
             </ul>
@@ -134,22 +133,22 @@ require('./setting.php');
 
                     <div class="overlay_leaning_contents_wrapper">
                         <?php foreach ($contents as $content) : ?>
-                        <input type="checkbox" class="overlay_input" id=<?php echo $content['content']?>>
-                        <label class="overlay_input_element" for=<?php echo $content['content']?>>
-                            <i class="fas fa-check-circle"></i>
-                            <?php echo $content['content'] . "　";?>
-                        </label>
+                            <input type="checkbox" class="overlay_input" id=<?php echo $content['content'] ?>>
+                            <label class="overlay_input_element" for=<?php echo $content['content'] ?>>
+                                <i class="fas fa-check-circle"></i>
+                                <?php echo $content['content'] . "　"; ?>
+                            </label>
                         <?php endforeach; ?>
                     </div>
                     <div class="learning_language">
                         <span class="overlay_each_tittle">学習言語（複数選択可）</span>
                         <div class="overlay_leaning_contents_wrapper">
                             <?php foreach ($languages as $language) : ?>
-                            <input type="checkbox" class="overlay_input" id=<?php echo $language['language']?>>
-                            <label class="overlay_input_element" for=<?php echo $language['language']?>>
-                                <i class="fas fa-check-circle"></i>
-                                <?php echo $language['language'] . "　";?>
-                            </label>
+                                <input type="checkbox" class="overlay_input" id=<?php echo $language['language'] ?>>
+                                <label class="overlay_input_element" for=<?php echo $language['language'] ?>>
+                                    <i class="fas fa-check-circle"></i>
+                                    <?php echo $language['language'] . "　"; ?>
+                                </label>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -166,8 +165,7 @@ require('./setting.php');
                     <input type="text" class="twitter_input" id="tweet_comment_input">
                     <input type="checkbox" id="tweet_button" name="tweet_button">
                     <label class="share_twitter" for="tweet_button">
-                        <i class="fas fa-check-circle fa-2x"
-                            id="twitter_check_mark_button"></i><span>Twitterにシェアする</span>
+                        <i class="fas fa-check-circle fa-2x" id="twitter_check_mark_button"></i><span>Twitterにシェアする</span>
                     </label>
                 </div>
             </div>
@@ -207,7 +205,7 @@ require('./setting.php');
     </div>
 
     <!-- 学習言語のドーナツチャート google.chart読み込み -->
-    <?php 
+    <?php
     require('./graph.php');
     ?>
     <script src="webapp.js"></script>

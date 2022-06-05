@@ -1,38 +1,7 @@
 'use strict';
 
 // この地名はなんて読む＋画像＋選択肢+解答ボックスのるーぷ
-for (let i = 0; i < 10; i++) {
-    let question =
-        `<h2> ${i + 1}. この地名はなんて読む？</h2> `
-        + `<img src="<?php  echo $img_result['image'];?>"/>`
-        + `<ul id="answerLists_${i}" style="display: flex;flex-direction: column">
-        <li id="answerList_${i}_0" onclick="check(${i},0,0)">${option[i][0]}</li>
-        <li id="answerList_${i}_1" onclick="check(${i},1,0)">${option[i][1]}</li>
-        <li id="answerList_${i}_2" onclick="check(${i},2,0)">${option[i][2]}</li>
-      </ul>`
-        + `<div class="answerBox" id="answerBox_${i}_0">
-         <p class="rightWrong right">正解</p>
-         <p class="description">正解は「${option[i][0]}」です！</p>
-       </div> `
-        + `<div class="answerBox" id="answerBox_${i}">
-         <p class="rightWrong wrong">不正解</p>
-         <p class="description">正解は「${option[i][0]}」です！</p>
-        </div>`
 
-    document.getElementById("question_area").insertAdjacentHTML("beforeend", question);//htmlに作ったdivタグに入れる
-    // htmlに作ったdivタグに入れる
-
-    //htmlに作ったdivタグに入れる
-    // let listItems = document.querySelectorAll(`#answerLists_${i} li`)
-
-    //ランダム関数 0,1,2の乱数を取ってくる    
-    // function rand() {
-    //     var choice_order = Math.floor(Math.random() * 3);
-    //     return choice_order;
-    // }
-    //htmlコレクションを配列にする styleをorderにする
-    // Array.from(listItems).forEach(elm => { elm.style.order = rand() });
-};
 
 // 選択肢に引数を与える optionNumberとanswerNumberが同じだったら正解
 var check = function (questionNumber, optionNumber, answerNumber) {
@@ -44,7 +13,7 @@ var check = function (questionNumber, optionNumber, answerNumber) {
     if (optionNumber === answerNumber) {
 
         questionOptionNumber.classList.add("correct_answer");//正解の選択肢の色を青にする
-        const correctAnswerBox = document.getElementById("answerBox_" + questionNumber + "_" + optionNumber);//正解のボックスを表示（displayをnoneからblockに）
+        const correctAnswerBox = document.getElementById("answerBox_" + questionNumber + "_" + 0);//正解のボックスを表示（displayをnoneからblockに）
         correctAnswerBox.style.display = "block";
         click_invalidation.classList.add("click_invalidation");//クリック不可
 

@@ -137,20 +137,17 @@
         shuffle($shuffle_num);
 
         //正誤判定するには記憶するやつ必要
-        echo $shuffle_num[0];
-        echo $shuffle_num[1];
-        echo $shuffle_num[2];
-
+        // echo $shuffle_num[0];
+        // echo $shuffle_num[1];
+        // echo $shuffle_num[2];
     ?>
-    
         <div class="container">
-
             <h2><?php echo $options_result['question_id'] ?>.この地名は何と読む？</h2>
             <img src="<?php echo $options_result['img']; ?>" alt="" >
             <ul id="answerLists_<?php  print($options_result['question_id']) ?>">
-                <li id="answerList_<?php  print($options_result['question_id']) ?>_<?= $shuffle_num[0]?>" onclick="click_choices(<?php  print($options_result['question_id']) ?>,<?= $shuffle_num[0]?>,1)"><?= $options_result["option_$shuffle_num[0]"];?></li>
-                <li id="answerList_<?php  print($options_result['question_id']) ?>_<?= $shuffle_num[1]?>" onclick="click_choices(<?php  print($options_result['question_id']) ?>,<?= $shuffle_num[1]?>,1)"><?= $options_result["option_$shuffle_num[1]"];?></li>
-                <li id="answerList_<?php  print($options_result['question_id']) ?>_<?= $shuffle_num[2]?>" onclick="click_choices(<?php  print($options_result['question_id']) ?>,<?= $shuffle_num[2]?>,1)"><?= $options_result["option_$shuffle_num[2]"];?></li>
+                <li id="answerList_<?php  print($options_result['question_id']) ?>_<?= $shuffle_num[0]?>" onclick="check(<?php  print($options_result['question_id']) ?>,<?= $shuffle_num[0]?>,1)"><?= $options_result["option_$shuffle_num[0]"];?></li>
+                <li id="answerList_<?php  print($options_result['question_id']) ?>_<?= $shuffle_num[1]?>" onclick="check(<?php  print($options_result['question_id']) ?>,<?= $shuffle_num[1]?>,1)"><?= $options_result["option_$shuffle_num[1]"];?></li>
+                <li id="answerList_<?php  print($options_result['question_id']) ?>_<?= $shuffle_num[2]?>" onclick="check(<?php  print($options_result['question_id']) ?>,<?= $shuffle_num[2]?>,1)"><?= $options_result["option_$shuffle_num[2]"];?></li>
             </ul>
 
             <div class="answerBox" id="answerBox_<?php  print($options_result['question_id']) ?>_0">

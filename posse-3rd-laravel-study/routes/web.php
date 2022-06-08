@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('hello', 'HelloController@index');
+Route::get('quiz/1', 'QuizController@tokyo');
+Route::get('quiz/2', 'QuizController@hiroshima');

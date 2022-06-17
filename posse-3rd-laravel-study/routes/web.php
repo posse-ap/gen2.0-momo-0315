@@ -10,11 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', 'HelloController@index');
-Route::get('quiz/1', 'QuizController@tokyo');
-Route::get('quiz/2', 'QuizController@hiroshima');
+Route::get('/', 'IndexController@index');
+Route::get('/', 'QuizController@index');
+Route::get('/quiz/{id}', 'QuizController@quiz')->name('id');

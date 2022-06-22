@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Question;
-use App\BigQuestion;
-use App\Choice;
 
 class HomeController extends Controller
 {
@@ -26,8 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $big_questions = BigQuestion::all();;
-        $questions = Question::all();
-        return view('auth.home', compact('big_questions', 'questions'));
+        
+        return view('auth.home');
     }
 }

@@ -1,3 +1,4 @@
+<!-- 最初にアクセスするページ -->
 <!DOCTYPE html>
 <html lang="ja">
 

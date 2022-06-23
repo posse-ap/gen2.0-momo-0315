@@ -10,14 +10,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
     <title>quizy</title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 
 <body>
     <div class="whole_wrapper">
         <a href="/home" class="quiz_link"><span>ログイン</span></a>
     </div>
-
 </body>
 
 </html>

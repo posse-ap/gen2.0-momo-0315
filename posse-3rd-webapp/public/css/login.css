@@ -1,0 +1,62 @@
+/* ログイン画面のcss */
+body {
+    background: #01b4d0;
+}
+
+.whole_wrapper {
+    padding-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz_link {
+    display: block;
+    width: 50%;
+    max-width: 350px;
+    margin: 10px auto;
+    padding: 1.5rem 3.0rem;
+    background-color: #7f8ea3;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.quiz_link span {
+    display: block;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    padding-left: 30px;
+}
+
+.quiz_link span::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.quiz_link span::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 3px solid #1755aa;
+    border-right: 3px solid #1755aa;
+    box-sizing: border-box;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0;
+    left: 5px;
+    bottom: 0;
+    margin: auto;
+    transition: 0.3s;
+}

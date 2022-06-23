@@ -1,49 +1,8 @@
 <!-- 管理者ログインホーム画面 -->
 @extends('layouts.app')
-
 @section('content')
-<div class="login-status">
-    <div class="">
-        <div class="">
-        </div>
-    </div>
-</div>
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
 
 <body id="body">
-    <header class="header">
-        <div class="header_inner">
-            <div class="header_left">
-                <div class="header_logo">
-                    <img src="https://posse.anti-pattern.co.jp/img/posseLogo.png" alt="" class="header_logo_img">
-                </div>
-                <div class="header_text">4th week
-                </div>
-            </div>
-
-
-        </div>
-
-    </header>
-    <button class="header_button" id="header_button">
-        <span class="header_button_text">投稿・記録
-        </span>
-    </button>
     <div class="body_wrapper">
         <div class="bar_graph_page">
             <ul class="learning_time_ul">
@@ -147,51 +106,40 @@
                     <div class="overlay_leaning_contents_wrapper">
                         <div class="overlay_input_horizontal">
                             <input type="checkbox" class="overlay_input" id="Nyobi">
-                            <label class="overlay_input_element" for="Nyobi"><i
-                                    class="fas fa-check-circle"></i>N予備</label>
+                            <label class="overlay_input_element" for="Nyobi"><i class="fas fa-check-circle"></i>N予備</label>
                             <input type="checkbox" class="overlay_input" id="dotinstall">
-                            <label class="overlay_input_element" for="dotinstall"><i
-                                    class="fas fa-check-circle"></i>ドットインストール</label>
+                            <label class="overlay_input_element" for="dotinstall"><i class="fas fa-check-circle"></i>ドットインストール</label>
                         </div>
                         <input type="checkbox" class="overlay_input" id="posse">
-                        <label class="overlay_input_element" for="posse"><i
-                                class="fas fa-check-circle"></i>POSSE課題</label>
+                        <label class="overlay_input_element" for="posse"><i class="fas fa-check-circle"></i>POSSE課題</label>
                     </div>
                     <div class="learning_language">
                         <span class="overlay_each_tittle">学習言語（複数選択可）</span>
                         <div class="overlay_leaning_contents_wrapper">
                             <div class="overlay_input_horizontal">
                                 <input type="checkbox" class="overlay_input" id="html">
-                                <label class="overlay_input_element" for="html"><i
-                                        class="fas fa-check-circle"></i>HTML</label>
+                                <label class="overlay_input_element" for="html"><i class="fas fa-check-circle"></i>HTML</label>
                                 <input type="checkbox" class="overlay_input" id="css">
-                                <label class="overlay_input_element" for="css"><i
-                                        class="fas fa-check-circle"></i>CSS</label>
+                                <label class="overlay_input_element" for="css"><i class="fas fa-check-circle"></i>CSS</label>
                                 <input type="checkbox" class="overlay_input" id="js">
-                                <label class="overlay_input_element" for="js"><i
-                                        class="fas fa-check-circle"></i>JavaScript</label>
+                                <label class="overlay_input_element" for="js"><i class="fas fa-check-circle"></i>JavaScript</label>
 
                             </div>
                             <div class="overlay_input_horizontal">
                                 <input type="checkbox" class="overlay_input" id="php">
-                                <label class="overlay_input_element" for="php"><i
-                                        class="fas fa-check-circle"></i>PHP</label>
+                                <label class="overlay_input_element" for="php"><i class="fas fa-check-circle"></i>PHP</label>
                                 <input type="checkbox" class="overlay_input" id="laravel">
-                                <label class="overlay_input_element" for="laravel"><i
-                                        class="fas fa-check-circle"></i>Laravel</label>
+                                <label class="overlay_input_element" for="laravel"><i class="fas fa-check-circle"></i>Laravel</label>
 
                                 <input type="checkbox" class="overlay_input" id="sql">
-                                <label class="overlay_input_element" for="sql"><i
-                                        class="fas fa-check-circle"></i>SQL</label>
+                                <label class="overlay_input_element" for="sql"><i class="fas fa-check-circle"></i>SQL</label>
                                 <input type="checkbox" class="overlay_input" id="shell">
-                                <label class="overlay_input_element" for="shell"><i
-                                        class="fas fa-check-circle"></i>SHELL</label>
+                                <label class="overlay_input_element" for="shell"><i class="fas fa-check-circle"></i>SHELL</label>
 
                             </div>
                             <div class="overlay_input_horizontal">
                                 <input type="checkbox" class="overlay_input" id="informationsystem">
-                                <label div class="overlay_input_element" for="informationsystem"><i
-                                        class="fas fa-check-circle"></i>情報システム基礎知識（その他）</label>
+                                <label div class="overlay_input_element" for="informationsystem"><i class="fas fa-check-circle"></i>情報システム基礎知識（その他）</label>
                             </div>
                         </div>
                     </div>
@@ -251,15 +199,7 @@
         </span>
         <i class="fas fa-chevron-right" id="year_month_next_button"></i>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
-    
 </body>
 
 </html>
-
 @endsection

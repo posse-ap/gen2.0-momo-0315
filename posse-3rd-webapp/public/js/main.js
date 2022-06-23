@@ -48,14 +48,14 @@ blue_gradient.addColorStop(1, '#0056c0');
 var bar_chart = new Chart(bar_ctx, {
     type: 'bar',
     data: {
-        labels: ["","2","","4","","6","","8","","10","","12","","14","","16","","18","","20","","22","","24","","26","","28","","30"],
+        labels: ["", "2", "", "4", "", "6", "", "8", "", "10", "", "12", "", "14", "", "16", "", "18", "", "20", "", "22", "", "24", "", "26", "", "28", "", "30"],
         datasets: [{
             label: '# of Votes',
-            data: [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8,1,2,3,4,5,6],
-						backgroundColor: blue_gradient,
-						hoverBackgroundColor: blue_gradient,
-						hoverBorderWidth: 2,
-						hoverBorderColor: 'purple'
+            data: [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6],
+            backgroundColor: blue_gradient,
+            hoverBackgroundColor: blue_gradient,
+            hoverBorderWidth: 2,
+            hoverBorderColor: 'purple'
         }]
     },
     options: {
@@ -66,36 +66,36 @@ var bar_chart = new Chart(bar_ctx, {
             xAxes: [                           // Ｘ軸設定
                 {
                     scaleLabel: {                 // 軸ラベル非表示
-                        display: false,               
+                        display: false,
                     },
                     gridLines: {                   // 補助線透明化
                         color: "rgba(0, 0, 0, 0)",
-                        zeroLineColor: "rgba(0, 0, 0, 0)"  
+                        zeroLineColor: "rgba(0, 0, 0, 0)"
                     },
-                    ticks: {                     
-                        fontColor: "#99BBD2",             
-                        fontSize: 14                  
+                    ticks: {
+                        fontColor: "#99BBD2",
+                        fontSize: 14
                     }
                 }
             ],
             yAxes: [                           // Ｙ軸設定
                 {
                     scaleLabel: {                  // 軸ラベル非表示
-                        display: false,                 
+                        display: false,
                     },
                     gridLines: {                   // 補助線非表示
-                        color: "rgba(0, 0, 0, 0)", 
-                        zeroLineColor: "rgba(0, 0, 0, 0)"        
+                        color: "rgba(0, 0, 0, 0)",
+                        zeroLineColor: "rgba(0, 0, 0, 0)"
                     },
                     ticks: {                       // 目盛り
                         min: 0,                        // 最小値
                         max: 8,                       // 最大値
                         stepSize: 2,                   // 軸間隔
-                        fontColor: "#99BBD2",            
-                        fontSize: 14   , 
-                        callback: function(tick) {
+                        fontColor: "#99BBD2",
+                        fontSize: 14,
+                        callback: function (tick) {
                             return tick.toString() + 'h';
-                          }
+                        }
                     }
                 }
             ]
@@ -123,7 +123,7 @@ function drawChart1() {
     var options = {
         pieHole: 0.4,
         window: 10,
-        pieSliceBorderColor:'none',
+        pieSliceBorderColor: 'none',
 
         colors: ["#1855EF",
             "#1170BC",
@@ -133,7 +133,7 @@ function drawChart1() {
             "#6C47EB",
             "#6C47EB",
             "#3004C0",],
-        legend: { position:'none' }
+        legend: { position: 'none' }
     };
 
     var chart1 = new google.visualization.PieChart(document.getElementById('donutChart1'));
@@ -149,18 +149,18 @@ function drawChart2() {
         ['ドットインストール', 42],
         ['N予備', 18],
         ['POSSE課題', 10],
-        
+
     ]);
 
     var options = {
         pieHole: 0.4,
         window: 10,
-        pieSliceBorderColor:'none',
+        pieSliceBorderColor: 'none',
         colors: [
             "#1855EF",
             "#1170BC",
             "#20BDDE"
-            ],
+        ],
         legend: { position: 'none' }
     };
 
@@ -183,19 +183,19 @@ const today = new Date();
 var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 
 // 初期表示
-    window.onload = function () {
-        showProcess(today, calendar);
-       
-    };
+window.onload = function () {
+    showProcess(today, calendar);
+
+};
 
 // 前の月透明で表示
-function prev(){
+function prev() {
     showDate.setMonth(showDate.getMonth() - 1);
     showProcess(showDate);
 }
 
 // 次の月透明で表示
-function next(){
+function next() {
     showDate.setMonth(showDate.getMonth() + 1);
     showProcess(showDate);
 }
@@ -223,7 +223,7 @@ function createProcess(year, month) {
     var endDate = new Date(year, month + 1, 0).getDate();
     var lastMonthEndDate = new Date(year, month, 0).getDate();
     var row = Math.ceil((startDayOfWeek + endDate) / week.length);
-    
+
 
     // 1行ずつ設定
     for (var i = 0; i < row; i++) {
@@ -232,29 +232,29 @@ function createProcess(year, month) {
         for (var j = 0; j < week.length; j++) {
             if (i == 0 && j < startDayOfWeek) {
                 // 1行目で1日まで先月の日付を設定
-                calendar += `<td class='invisible' onclick=input(${year},${month+1},${count})>` + (lastMonthEndDate - startDayOfWeek + j + 1) + "</td>";
+                calendar += `<td class='invisible' onclick=input(${year},${month + 1},${count})>` + (lastMonthEndDate - startDayOfWeek + j + 1) + "</td>";
             } else if (count >= endDate) {
                 // 最終行で最終日以降、翌月の日付を設定
                 count++;
-                calendar += `<td class='invisible' onclick=input(${year},${month+1},${count})>` + (count - endDate) + "</td>";
+                calendar += `<td class='invisible' onclick=input(${year},${month + 1},${count})>` + (count - endDate) + "</td>";
             } else {
                 // 当月の日付を曜日に照らし合わせて設定、青丸つける
                 count++;
                 if (month == (today.getMonth())
-                && count < today.getDate()){
-                    calendar += `<td class='disabled' onclick=input(${year},${month+1},${count})>` + count + "</td>";
+                    && count < today.getDate()) {
+                    calendar += `<td class='disabled' onclick=input(${year},${month + 1},${count})>` + count + "</td>";
                 }
-                if(month != (today.getMonth())
-                && count == today.getDate()){
-                    calendar += `<td onclick=input(${year},${month+1},${count})>` + count + `</td>`;
+                if (month != (today.getMonth())
+                    && count == today.getDate()) {
+                    calendar += `<td onclick=input(${year},${month + 1},${count})>` + count + `</td>`;
                 }
-                if(year == today.getFullYear()
-                  && month == (today.getMonth())
-                  && count == today.getDate()){
-                    calendar += `<td class='today' onclick=input(${year},${month+1},${count})>` + count + `</td>`;
-                } if (count > today.getDate()){
-                    calendar += `<td onclick=input(${year},${month+1},${count})>` + count + "</td>";
-                } 
+                if (year == today.getFullYear()
+                    && month == (today.getMonth())
+                    && count == today.getDate()) {
+                    calendar += `<td class='today' onclick=input(${year},${month + 1},${count})>` + count + `</td>`;
+                } if (count > today.getDate()) {
+                    calendar += `<td onclick=input(${year},${month + 1},${count})>` + count + "</td>";
+                }
             }
         }
         calendar += "</tr>";
@@ -262,12 +262,12 @@ function createProcess(year, month) {
     return calendar;
 }
 //日付をクリックしたらinputに反映させる
-function input(year,month,date) {
+function input(year, month, date) {
     calendarInput.value = `${year}年${month}月${date}日`
     console.log(year + "年 " + month + "月" + date + "日")
 };
 
-determinationBtn.addEventListener('click', ()=> {
+determinationBtn.addEventListener('click', () => {
     calendarModal.style.display = "none"
 });
 
@@ -278,38 +278,38 @@ const yearMonthNextBtn = document.getElementById('year_month_next_button');
 var year_text = showDate.getFullYear();
 var month_text = showDate.getMonth();
 var counter = 0;
-yearMonthDisplayed.innerHTML = `${year_text}年${month_text+1}月`
+yearMonthDisplayed.innerHTML = `${year_text}年${month_text + 1}月`
 
-yearMonthPrevBtn.addEventListener('click', ()=> {
+yearMonthPrevBtn.addEventListener('click', () => {
     counter++;
-    yearMonthDisplayed.innerHTML = `${year_text}年${month_text-counter+1}月`
-    console.log(`${year_text}年${month_text+1+counter}月`)
+    yearMonthDisplayed.innerHTML = `${year_text}年${month_text - counter + 1}月`
+    console.log(`${year_text}年${month_text + 1 + counter}月`)
 })
 
 yearMonthNextBtn.addEventListener('click', () => {
     counter++;
-    yearMonthDisplayed.innerHTML = `${year_text}年${month_text+1+counter}月`
-    console.log(`${year_text}年${month_text+1+counter}月`)
+    yearMonthDisplayed.innerHTML = `${year_text}年${month_text + 1 + counter}月`
+    console.log(`${year_text}年${month_text + 1 + counter}月`)
 })
 
 //Twitter投稿機能
 // var TweetText = document.forms.tweetForm.tweetCommentInput.value;
-$(function(){
-    $('#tweet_button').click(function(){
-        if($('[name="tweet_button"]').prop('checked')){
+$(function () {
+    $('#tweet_button').click(function () {
+        if ($('[name="tweet_button"]').prop('checked')) {
             console.log('チェックされてるよ')
             overlayBtn.innerText = "";
             const anchor = document.createElement('a');
             const hrefValue =
-              'https://twitter.com/intent/tweet?button_hashtag=あなたのいいところ&ref_src=twsrc%5Etfw';
-              
+                'https://twitter.com/intent/tweet?button_hashtag=あなたのいいところ&ref_src=twsrc%5Etfw';
+
             anchor.setAttribute('href', hrefValue);
             anchor.className = 'twitter-hashtag-button';
             anchor.setAttribute('data-text', 'あああ');
             anchor.innerText = '診断・投稿';
-            
+
             overlayBtn.appendChild(anchor);
-        }else{
+        } else {
             console.log('チェックされてないよ')
             var element = overlayBtn.childNodes[0];
             overlayBtn.removeChild(element);

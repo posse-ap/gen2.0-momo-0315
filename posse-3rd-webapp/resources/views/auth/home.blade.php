@@ -8,17 +8,17 @@
             <ul class="learning_time_ul">
                 <li class="learning_time_li">
                     <span>Today</span>
-                    <time>3</time>
+                    <time>{{ $todays_record }}</time>
                     <hour>hour</hour>
                 </li>
                 <li class="learning_time_li">
                     <span>Month</span>
-                    <time>120</time>
+                    <time>{{ $month_record }}</time>
                     <hour>hour</hour>
                 </li>
                 <li class="learning_time_li">
                     <span>Total</span>
-                    <time>1348</time>
+                    <time>{{ $total_record }}</time>
                     <hour>hour</hour>
                 </li>
             </ul>
@@ -78,28 +78,29 @@
             <div class="left_wrapper">
                 <div class="learning_date">
                     <span class="overlay_each_tittle">学習日</span>
+                    <form action="/record_form" method="post">
+                        @csrf
+                        <input type="text" id="calendar_input">
 
-                    <input type="text" id="calendar_input">
+                        <div class="calendar_modal" id="calendar_modal">
+                            <div class="calendar_wrapper">
+                                <!-- xxxx年xx月を表示 -->
+                                <h1 id="calendar_header">
+                                </h1>
 
-                    <div class="calendar_modal" id="calendar_modal">
-                        <div class="calendar_wrapper">
-                            <!-- xxxx年xx月を表示 -->
-                            <h1 id="calendar_header">
-                            </h1>
+                                <!-- ボタンクリックで月移動 -->
+                                <div class="calendar_next_prev_button" id="next-prev-button">
+                                    <button class="prev_button" id="prev" onclick="prev()">＜</button>
+                                    <button class="next_button" id="next" onclick="next()">＞</button>
+                                </div>
 
-                            <!-- ボタンクリックで月移動 -->
-                            <div class="calendar_next_prev_button" id="next-prev-button">
-                                <button class="prev_button" id="prev" onclick="prev()">＜</button>
-                                <button class="next_button" id="next" onclick="next()">＞</button>
+                                <!-- カレンダー -->
+                                <div id="calendar"></div>
+                                <button class="determination_button" id="determination_button">
+                                    <span class="determination_button_text">決定</span>
+                                </button>
                             </div>
-
-                            <!-- カレンダー -->
-                            <div id="calendar"></div>
-                            <button class="determination_button" id="determination_button">
-                                <span class="determination_button_text">決定</span>
-                            </button>
                         </div>
-                    </div>
                 </div>
                 <div class="learning_content">
                     <span class="overlay_each_tittle">学習コンテンツ（複数選択可）</span>
@@ -166,6 +167,7 @@
             <span class="overlay_post_record_button_text">投稿・記録
             </span>
         </button>
+        </form>
         <!-- 
     
     loading overlay

@@ -19,7 +19,7 @@ services:
       context: ./app
     volumes:
       - ../posse-3rd-webapp:/work/backend
-    depends_on: ["db"]
+    depends_on: [ "db" ]
   web:
     build:
       context: ./web
@@ -27,4 +27,9 @@ services:
       - 8001:80
     volumes:
       - ../posse-3rd-webapp:/work/backend
-    depends_on: ["app"]
+    depends_on: [ "app" ]
+  mailhog:
+    image: 'mailhog/mailhog:latest'
+    ports:
+        - 1025:1025
+        - 8025:8025

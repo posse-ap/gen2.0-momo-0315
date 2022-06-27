@@ -42,6 +42,18 @@ class StudyRecordsTableSeeder extends Seeder
                 'language_id' => 1,
                 'content_id' => 2,
             ],
+            [
+                'study_date' => '2022-6-27',
+                'study_time' => 10,
+                'language_id' => 1,
+                'content_id' => 2,
+            ],
+            [
+                'study_date' => '2022-6-27',
+                'study_time' => 10,
+                'language_id' => 1,
+                'content_id' => 2,
+            ],
         ];
         foreach ($records as $record) {
             DB::table('study_records')->insert($record);
